@@ -4,22 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ノストラダムス予言はなぜ当たったと言われるのか | Truth Seeker</title>
-    <meta name="description" content="16世紀の占星術師ノストラダムス。彼の「諸世紀」がなぜ今なお『的中した』と語り継がれるのか。解釈の曖昧さと心理学的な後知恵バイアスからその真相を解明します。">
+    <title>ノストラダムスの予言は本当に当たっているのか？ | Truth Seeker</title>
+    <meta name="description"
+        content="16世紀の医師ノストラダムス。その「百詩篇」に記された曖昧な詩は、なぜ現代でも的中したと騒がれるのでしょうか。解釈の恣意性と心理学的背景から、予言の真実を論理的に検証します。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: #334155;
-            --header-h: 70px;
+            --bg-base: #020617;
+            --bg-surface: rgba(15, 23, 42, 0.7);
+            --bg-accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-dim: #64748b;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --header-blur: 15px;
+            --container-w: 840px;
         }
 
         * {
@@ -29,243 +33,397 @@
         }
 
         body {
-            font-family: 'Inter', 'Noto Sans JP', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
             line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%),
+                radial-gradient(circle at -10% 40%, #0f172a 0%, transparent 40%);
         }
 
         header {
-            height: var(--header-h);
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
             position: fixed;
-            width: 100%;
-            top: 0;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            height: 60px;
+            background: rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(var(--header-blur));
+            border: 1px solid var(--border-glass);
+            border-radius: 40px;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .nav-wrapper {
+        .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%;
+            width: 100%;
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
             text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .post-hero {
-            padding-top: calc(var(--header-h) + 4rem);
-            padding-bottom: 3rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 3rem;
-        }
-
-        .post-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.85rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .post-hero h1 {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #fff, #94a3b8);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .post-intro {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            border-left: 3px solid var(--accent);
-            padding-left: 1.5rem;
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
         }
 
-        section {
-            margin-bottom: 4rem;
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--bg-accent);
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--bg-accent);
+            width: 0%;
+            box-shadow: 0 0 10px var(--bg-accent);
+        }
+
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .category-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--bg-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: var(--accent-glow);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -0.02em;
+        }
+
+        .post-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.9;
+        }
+
+        main {
+            max-width: var(--container-w);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+
+        article section {
+            background: var(--bg-surface);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: clamp(1.5rem, 5vw, 3.5rem);
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        article section:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
         }
 
         h2 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
             display: flex;
             align-items: center;
-            color: var(--accent);
         }
 
         h2::before {
-            content: '';
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--accent);
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: var(--bg-accent);
             margin-right: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--bg-accent);
         }
 
         p {
             margin-bottom: 1.5rem;
-            color: var(--text-main);
+            font-size: 1.05rem;
         }
 
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), transparent);
-            border: 1px solid var(--accent);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin: 4rem 0;
+        .info-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--bg-accent);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
         }
 
-        .conclusion-box h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+        .info-box strong {
+            color: var(--bg-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit';
+            text-transform: uppercase;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 2px solid var(--bg-accent) !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--bg-accent);
+            position: relative;
+            z-index: 1;
         }
 
         footer {
-            border-top: 1px solid var(--border);
-            padding: 4rem 0;
+            margin-top: 80px;
+            padding: 100px 0 60px;
+            border-top: 1px solid var(--border-glass);
             text-align: center;
-            color: var(--text-muted);
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--text-dim);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
-            .post-hero h1 {
-                font-size: 2.2rem;
+            header {
+                padding: 0 1rem;
+                width: 95%;
             }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            article section {
+                padding: 1.5rem;
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <header>
-        <div class="container" style="max-width: 1000px;">
-            <div class="nav-wrapper">
-                <a href="../index.html" class="logo">Truth Seeker</a>
-                <nav>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../about.html">About</a></li>
-                        <li><a href="../contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">TRUTH SEEKER</a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main class="container">
-        <article>
-            <div class="post-hero">
-                <div class="post-meta">
-                    <span>File No. 008</span>
-                    <span>•</span>
-                    <span>History & Psychology</span>
-                </div>
-                <h1>ノストラダムス予言はなぜ当たったと言われるのか？曖昧な詩が「真実」に変わる瞬間</h1>
-                <p class="post-intro">
-                    16世紀のフランスに現れた医師、ミシェル・ノストラダムス。彼が残した四行詩集『諸世紀』は、数百年にわたり「的中」と「解釈」の歴史を繰り返してきました。なぜ彼の言葉は、現代においてもなお説得力を持ち続けるのでしょうか。
-                </p>
-            </div>
+    <div class="hero">
+        <span class="category-tag">File No. 004 • Prophecy & Textual Analysis</span>
+        <h1>ノストラダムスの予言は本当に当たっているのか？<br><span style="color: var(--text-secondary);">歴史を後付けで解釈する「予言」のカラクリ</span></h1>
+        <p class="post-intro">
+            大王の降臨、世界の破滅。16世紀の詩人ミシェル・ノストラダムスが遺した「諸世紀」は、なぜ数世紀を経ても人々の心を捉え、時に社会現象を引き起こすのでしょうか。その魔力とトリックを解剖します。
+        </p>
+    </div>
 
-            <!-- 1. 都市伝説の概要 -->
-            <section id="overview">
+    <main>
+        <article>
+            <section class="scroll-reveal">
                 <h2>1. 都市伝説の概要</h2>
                 <p>
-                    ノストラダムスにまつわる最大の伝説は、「彼は未来の歴史を詳細に見通していた」というものです。フランス革命、ナポレオンの出現、ヒトラーの台頭、そして1999年の「恐怖の大王」。これらすべての出来事が、400年以上前に書かれた短い詩の中に隠されていたと信じられています。
+                    ノストラダムスの予言にまつわる伝説は、「彼は四行詩の中で、ヒットラーの台頭、9.11テロ、そして自身の死までも正確に言い当てていた」というものです。
                 </p>
                 <p>
-                    信奉者たちは、詩の中の「ヒスター（Hister）」という言葉をヒトラーの暗示とし、「若き獅子」が目を射抜かれるという描写を国王アンリ2世の事故死を予言したものとして位置づけてきました。予言は「起こった後に、その証拠が見つかる」という不思議なサイクルの中で、不滅のミステリーとして君臨し続けています。
+                    特に1999年の「恐怖の大王」の予言は、日本をはじめ世界中で終末論を巻き起こし、多くの人々に実在の脅威として受け入れられました。
                 </p>
             </section>
 
-            <!-- 2. なぜ広まったのか -->
-            <section id="viral-reason">
+            <section class="scroll-reveal">
                 <h2>2. なぜ広まったのか</h2>
                 <p>
-                    この伝説が爆発的に広まった背景には、人間の「不安」と「知的好奇心」の巧みな融合があります。特に大きな社会不安が訪れる時期——世界恐慌、冷戦、世紀末——には、人々は未来を予測し、現在の苦境に意味を見出すための拠り所を求めてきました。
+                    最大の理由は、彼の詩が持つ<strong>「極めて高度な抽象性」</strong>です。詩には具体的な日付や固有名詞がほとんどなく、象徴的な単語が並んでいるため、あらゆる歴史的事象をそこに当てはめることが可能です。
                 </p>
+                <div class="info-box">
+                    <strong>VIRAL ANALYSIS</strong>
+                    <p>「予言が当たった」というニュースは、不確実な未来への不安を抱える現代人にとって、「未来は予定されている」という逆説的な安心感を与えます。</p>
+                </div>
                 <p>
-                    また、1970年代以降のメディア戦術も重要です。日本では五島勉氏の『ノストラダムスの大予言』が空前のベストセラーとなり、「1999年に世界が終わる」という恐怖がエンターテインメントとして消費されました。情報の断片をドラマチックに繋ぎ合わせる手法は、科学的な検証よりも人々の感情に訴えかけやすく、口コミやテレビ番組を通じて「既成事実」として定着していったのです。
+                    これを心理学では「バーナム効果」や「確証バイアス」と呼び、自分が期待する情報を無意識に選び取ってしまう現象が起きているのです。
                 </p>
             </section>
 
-            <!-- 3. 科学的・歴史的検証 -->
-            <section id="verification">
-                <h2>3. 科学的・歴史的検証</h2>
+            <section class="scroll-reveal">
+                <h2>3. 歴史的・言語学的検証</h2>
                 <p>
-                    歴史学的、言語学的な調査を行うと、ノストラダムスの予言が「当たった」とされる現象は、2つの法則によって説明可能です。
+                    彼の詩を当時の文脈で読むと、それは「未来の予言」ではなく、当時の政治状況や宗教戦争への「比喩的な批判」であったことが分かります。
                 </p>
                 <p>
-                    一つは<strong>「バーナム効果」</strong>と<strong>「解釈の柔軟性」</strong>です。ノストラダムスの詩は、フランス語、プロヴァンス語、イタリア語、ラテン語、ギリシャ語が混ざり合った、極めて曖昧で象徴的な言葉で書かれています。例えば「ヒスター」は、当時ではドナウ川の下流を指す古い名称に過ぎませんでしたが、後世の人はそれを自分たちに馴染みのある悪役、ヒトラーに勝手に読み替えたのです。何千もある詩の中から、起きた出来事に似ているものを探し出す作業は、一種の「射撃した後に的に名前をかく」行為（テキサスの射手の誤謬）に他なりません。
-                </p>
-                <p>
-                    二つ目は<strong>「後知恵バイアス」</strong>です。出来事が起こった後に「やはり予言されていたのだ」と解釈することを指します。ノストラダムスが具体的に日付や固有名詞を特定して、その通りに起こったことは一度もありません。彼の言葉は「いかようにも取れる」からこそ、どんな歴史的瞬間にも無理やり適合させることができてしまうのです。また、翻訳の家庭で、原文にはないニュアンスが後から付け加えられる（偽作や改竄）ことも頻繁に行われてきました。
+                    例えば「ヒスター（Hister）」という単語はヒットラーの予言とされますが、実際にはドナウ川の古名であり、当時の地理的状況を説明しているに過ぎません。後世の解釈者が翻訳の過程で、意図的に現代の言葉へ近づけてしまった例が数多く見つかっています。
                 </p>
             </section>
 
-            <!-- 4. 残る疑問 -->
-            <section id="remaining-mysteries">
+            <section class="scroll-reveal">
                 <h2>4. 残る疑問</h2>
                 <p>
-                    しかし、純粋な疑問も残ります。ノストラダムス本人の「意図」は何だったのかという点です。
+                    しかし、単なる偶然や後付けでは説明しづらい「シンクロニシティ」も存在します。
                 </p>
                 <p>
-                    近年の研究では、彼は未来を予言しようとしたのではなく、当時の政治情勢や宗教戦争の惨状を、検閲を逃れるために「象徴的な詩」という形を借りて記録しようとした「時事批評家」だったのではないかという説が有力視されています。あるいは、単に詩人としての芸術的表現だった可能性もあります。彼が自身の著書を「未来を確実に当てるもの」と断言していない以上、現代の狂騒こそが最大の誤解である可能性があります。
+                    彼が記述した「二つの鋼の鳥」や「火の海」といったイメージが、現代の惨劇とあまりに鮮烈に重なってしまうのはなぜか。それは彼が人類の歴史が繰り返す「悲劇のパターン」を深く洞察していた結果なのかもしれません。
                 </p>
             </section>
 
-            <!-- 5. 合理的結論 -->
-            <section id="conclusion" class="conclusion-box">
+            <section class="scroll-reveal conclusion">
                 <h3>5. 合理的結論</h3>
                 <p>
-                    ノストラダムスの予言が当たったと言われる理由は、<strong>「人間の脳が持つ、曖昧な情報に意味を見出そうとする強力なパターン認識機能と、後付け解釈の産物」</strong>であると結論づけることができます。
+                    ノストラダムスの予言の正体は、<strong>「曖昧な言葉というキャンバスに、後世の私たちが勝手に歴史の絵を描き込んでいる共同幻想」</strong>です。
                 </p>
                 <p>
-                    魔法も超能力もそこにはありません。そこにあるのは、言葉の迷宮と、それを真実として信じたいという私たちの心理的欲求です。予言が未来を救うことはありませんが、歴史を振り返る際の「鏡」としての役割は、これからも果たし続けるのかもしれません。
+                    予言が当たるのではなく、私たちが「当てている」のです。彼の言葉は未来を映す鏡ではなく、私たちの過去と不安を映し出す投影機に他なりません。
                 </p>
-                <p style="margin-top: 2rem; font-style: italic; color: var(--accent);">
-                    予言が当たっているのではなく、私たちが「当てている」のです。
+                <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
+                    真実を見抜く目は、詩篇の中ではなく、言葉の背後にある私たちの心理を凝視することから始まります。
                 </p>
             </section>
         </article>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Truth Seeker - Logical Urban Legend Verification Project.</p>
-            <nav style="font-size: 0.85rem; margin-top: 1rem;">
-                <a href="../about.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">当サイトについて</a>
-                <a href="../contact.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">お問い合わせ</a>
-                <a href="../privacy.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">プライバシーポリシー</a>
-            </nav>
+        <span class="footer-logo">TRUTH SEEKER</span>
+        <div class="footer-nav">
+            <a href="../about.html">About Us</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.
         </div>
     </footer>
+
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+
+            let reveals = document.querySelectorAll(".scroll-reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    reveals[i].classList.add("visible");
+                }
+            }
+        };
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
 
 </html>

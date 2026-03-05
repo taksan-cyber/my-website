@@ -9,17 +9,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: #334155;
-            --header-h: 70px;
+            --bg-base: #020617;
+            --bg-surface: rgba(15, 23, 42, 0.7);
+            --bg-accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-dim: #64748b;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --header-blur: 15px;
+            --container-w: 840px;
         }
 
         * {
@@ -29,225 +32,361 @@
         }
 
         body {
-            font-family: 'Inter', 'Noto Sans JP', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
             line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%),
+                radial-gradient(circle at -10% 40%, #0f172a 0%, transparent 40%);
         }
 
         header {
-            height: var(--header-h);
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
             position: fixed;
-            width: 100%;
-            top: 0;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            height: 60px;
+            background: rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(var(--header-blur));
+            border: 1px solid var(--border-glass);
+            border-radius: 40px;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .nav-wrapper {
+        .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%;
+            width: 100%;
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
             text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .post-hero {
-            padding-top: calc(var(--header-h) + 4rem);
-            padding-bottom: 3rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 3rem;
-        }
-
-        .post-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.85rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .post-hero h1 {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #fff, #94a3b8);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .post-intro {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            border-left: 3px solid var(--accent);
-            padding-left: 1.5rem;
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
         }
 
-        section {
-            margin-bottom: 4rem;
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--bg-accent);
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--bg-accent);
+            width: 0%;
+            box-shadow: 0 0 10px var(--bg-accent);
+        }
+
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .category-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--bg-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: var(--accent-glow);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -0.02em;
+        }
+
+        .post-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.9;
+        }
+
+        main {
+            max-width: var(--container-w);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+
+        article section {
+            background: var(--bg-surface);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: clamp(1.5rem, 5vw, 3.5rem);
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        article section:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
         }
 
         h2 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
             display: flex;
             align-items: center;
-            color: var(--accent);
         }
 
         h2::before {
-            content: '';
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--accent);
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: var(--bg-accent);
             margin-right: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--bg-accent);
         }
 
         p {
             margin-bottom: 1.5rem;
-            color: var(--text-main);
+            font-size: 1.05rem;
         }
 
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), transparent);
-            border: 1px solid var(--accent);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin: 4rem 0;
+        .info-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--bg-accent);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
         }
 
-        .conclusion-box h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+        .info-box strong {
+            color: var(--bg-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit';
+            text-transform: uppercase;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 2px solid var(--bg-accent) !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--bg-accent);
+            position: relative;
+            z-index: 1;
         }
 
         footer {
-            border-top: 1px solid var(--border);
-            padding: 4rem 0;
+            margin-top: 80px;
+            padding: 100px 0 60px;
+            border-top: 1px solid var(--border-glass);
             text-align: center;
-            color: var(--text-muted);
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--text-dim);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
-            .post-hero h1 {
-                font-size: 2.2rem;
+            header {
+                padding: 0 1rem;
+                width: 95%;
             }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            article section {
+                padding: 1.5rem;
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <header>
-        <div class="container" style="max-width: 1000px;">
-            <div class="nav-wrapper">
-                <a href="../index.html" class="logo">Truth Seeker</a>
-                <nav>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../about.html">About</a></li>
-                        <li><a href="../contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">TRUTH SEEKER</a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main class="container">
-        <article>
-            <div class="post-hero">
-                <div class="post-meta">
-                    <span>File No. 006</span>
-                    <span>•</span>
-                    <span>History & Sociology</span>
-                </div>
-                <h1>フリーメイソンは世界を支配しているのか？伝説の影に隠れた「友愛団体」の真実</h1>
-                <p class="post-intro">
-                    「コンパスと直角定規」「万物を見通す目」。これほどまでに陰謀論の代名詞となった組織はないでしょう。フリーメイソン。彼らは本当に秘密裏に世界政府を樹立しようとしているのでしょうか。それとも、単なる慈善団体の誇大広告に過ぎないのでしょうか。
-                </p>
-            </div>
+    <div class="hero">
+        <span class="category-tag">File No. 006 • History & Sociology</span>
+        <h1>フリーメイソンは世界を支配しているのか？<br><span style="color: var(--text-secondary);">伝説の影に隠れた「友愛団体」の真実</span></h1>
+        <p class="post-intro">
+            「コンパスと直角定規」「万物を見通す目」。これほどまでに陰謀論の代名詞となった組織はないでしょう。フリーメイソン。彼らは本当に秘密裏に世界政府を樹立しようとしているのでしょうか。
+        </p>
+    </div>
 
-            <!-- 1. 都市伝説の概要 -->
-            <section id="overview">
+    <main>
+        <article>
+            <section class="scroll-reveal">
                 <h2>1. 都市伝説の概要</h2>
                 <p>
-                    フリーメイソンにまつわる都市伝説の核心は、「選ばれたエリートたちが秘密裏に政治・経済・教育を操り、自らの理想とする世界（新世界秩序：New World
-                    Order）を構築しようとしている」という点にあります。
+                    都市伝説の核心は、「選ばれたエリートたちが秘密裏に政治・経済・教育を操り、自らの理想とする世界（新世界秩序）を構築しようとしている」という点にあります。
                 </p>
                 <p>
-                    アメリカ合衆国の1ドル札に刻まれたピラミッドと目、配置された歴代大統領、そしてフランス革命や明治維新といった歴史の転換点に「メイソン」が必ず名を連ねているとされる事実が、その支配説を補強しています。会員同士にしか通じない合言葉や握手、儀式の秘匿性は、部外者の恐怖と不信感を煽り、「この世界の裏側には巨大な意志が存在する」という魅力的な物語を完成させました。
+                    1ドル札に刻まれたピラミッドと目、配置された歴代大統領といった事実が支配説を補強。合言葉や儀式の秘匿性は、部外者の不信感を煽る魅力的な物語を完成させました。
                 </p>
             </section>
 
-            <!-- 2. なぜ広まったのか -->
-            <section id="viral-reason">
+            <section class="scroll-reveal">
                 <h2>2. なぜ広まったのか</h2>
                 <p>
-                    この伝説の起源は、18世紀後半のタクシル事件（カトリック教会を欺くための壮大な悪ふざけ）まで遡ります。一人の作家がフリーメイソンが「悪魔崇拝」をしているという嘘をバラ撒いたことが、現在まで続くネガティブなイメージの源泉となりました。
+                    起源は18世紀後半のタクシル事件まで遡ります。一人の作家が流した「悪魔崇拝」の嘘が、現在まで続くネガティブなイメージの源泉となりました。
                 </p>
+                <div class="info-box">
+                    <strong>VIRAL ANALYSIS</strong>
+                    <p>近代社会が複雑化するにつれ、人々は「理解不能な不幸」に対して具体的で分かりやすい悪役を求めるようになりました。</p>
+                </div>
                 <p>
-                    さらに、近代社会が複雑化するにつれ、人々は「理解不能な不幸や社会変動」に対して、具体的で分かりやすい悪役を求めるようになりました。これを心理学では「秩序への欲求」と呼びます。「世界を支配する組織」が存在するという考えは、裏を返せば「世界は誰の手にも負えない無秩序なものではない」という一種の安心感を与えるからです。フィクション（小説や映画）がこれを利用し、エンターテインメントとして消費されたことも、伝説が「真実味」を持って語られる大きな後押しとなりました。
+                    「世界を支配する組織」が存在するという考えは、裏を返せば「世界は無秩序ではない」という奇妙な安心感を人々に与えてきたのです。
                 </p>
             </section>
 
-            <!-- 3. 科学的・歴史的検証 -->
-            <section id="verification">
-                <h2>3. 科学的・歴史的検証</h2>
+            <section class="scroll-reveal">
+                <h2>3. 歴史的検証</h2>
                 <p>
-                    歴史的事実を検証すると、フリーメイソンそのものが単一の意志を持つ「巨大企業」のような組織ではないことが分かります。
+                    歴史的事実を検証すると、フリーメイソンそのものが単一の意志を持つ「巨大司令部」を持っていないことが分かります。各国・各地域のロジが独立して運営されているため、全域的な指揮命令系統は存在しません。
                 </p>
                 <p>
-                    フリーメイソンは世界共通の「中央司令部」を持たず、各国・各地域の「グランド・ロッジ」が独立して運営されています。そのため、全人類を一つの方向に導くような全域的な指揮命令系統は存在しません。実際、歴史上のメイソン同士が戦争において敵味方に分かれて戦った事例は枚挙にいとまがなく、彼らに一貫した政治的野望がないことを示唆しています。
-                </p>
-                <p>
-                    また、1ドル札の「目」についても、当時のキリスト教的芸術において「神の遍在」を示す一般的な意匠であることが判明しています。ジョージ・ワシントンやベンジャミン・フランクリンといった建国の父たちが会員であったことは事実ですが、それは当時のエリート層にとってメイソン加入が一種の「社交ステータス」として推奨されていた社会的背景によるものであり、結社が建国を「計画」したという順序とは異なります。現代の活動の主眼も、地域社会への寄付や病院運営といった慈善活動に置かれています。
+                    1ドル札の「目」も当時の一般的なキリスト教的意匠であり、建国の父たちの加入も、当時のエリート層の「社交ステータス」という側面が強いものでした。現代の活動も慈善活動が主眼です。
                 </p>
             </section>
 
-            <!-- 4. 残る疑問 -->
-            <section id="remaining-mysteries">
+            <section class="scroll-reveal">
                 <h2>4. 残る疑問</h2>
                 <p>
-                    しかし、全てが否定されたわけではありません。最大の「謎」は、なぜ彼らがこれほどまでに厳格な「儀式の秘匿」を続けているのかという点です。情報公開が進んだ現代においても、昇進の儀式や特定のシンボリズムの、そのコミュニティ内での真の定義は、外部には完全に明かされていません。
+                    しかし、全てが否定されたわけではありません。最大の「謎」は、なぜ彼らがこれほどまでに厳格な「儀式の秘匿」を続けているのかという点です。
                 </p>
                 <p>
-                    また、特定のロッジが歴史的に強力なロビイング活動を行っていた可能性は否定できません。例えば、イタリアの「P2ロッジ事件（1981年）」では、会員名簿に政治家、軍人、実業家が並び、国家的な汚職や転覆計画に関与していたことが発覚しました。これは組織全体の問題ではありませんが、「秘密結社」というフレームワークが、権力者が癒着するための隠れ蓑として極めて優秀であることを証明してしまいました。この「負の実績」が、人々の不信感を絶やさない消えない火種となっています。
+                    また、特定のロッジが歴史的に強力なロビイング活動を行っていた可能性は否定できません。1981年の「P2ロッジ事件」は、秘密結社という枠組みが癒着の温床になり得ることを証明してしまいました。
                 </p>
             </section>
 
-            <!-- 5. 合理的結論 -->
-            <section id="conclusion" class="conclusion-box">
+            <section class="scroll-reveal conclusion">
                 <h3>5. 合理的結論</h3>
                 <p>
-                    この都市伝説の正体は、<strong>「歴史的なエリート社交クラブの秘匿性が、人々の不安と創作欲求によって増幅された、実体のない蜃気楼」</strong>であると言えます。
+                    この都市伝説の正体は、<strong>「歴史的なエリート社交クラブの秘匿性が、人々の不安によって増幅された、実体のない蜃気楼」</strong>であると言えます。
                 </p>
                 <p>
-                    フリーメイソンが世界を支配しているという証拠はありません。しかし、彼らが提供する「秘密の共有」という心理的装置が、結果として強力な人脈ネットワークを作り上げ、歴史上の様々な場面で間接的な影響力を発揮してきたのは事実でしょう。支配という意図的な行動ではなく、影響という副産物。それこそが、伝説の根底にある合理的な真実ではないでしょうか。
+                    支配という意図的な行動ではなく、提供される「秘密の共有」という心理的装置が、強力な人脈ネットワークを作り上げ、歴史上の様々な場面で間接的な影響力を発揮してきたのが事実でしょう。
                 </p>
-                <p style="margin-top: 2rem; font-style: italic; color: var(--accent);">
+                <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
                     真の支配者は、影の中に隠れているのではなく、私たちの「信じたい」という心の中に潜んでいるのかもしれません。
                 </p>
             </section>
@@ -255,18 +394,35 @@
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Truth Seeker - Logical Urban Legend Verification Project.</p>
-            <nav style="font-size: 0.85rem; margin-top: 1rem;">
-                <a href="../about.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">当サイトについて</a>
-                <a href="../contact.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">お問い合わせ</a>
-                <a href="../privacy.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">プライバシーポリシー</a>
-            </nav>
+        <span class="footer-logo">TRUTH SEEKER</span>
+        <div class="footer-nav">
+            <a href="../about.html">About Us</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.
         </div>
     </footer>
+
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+
+            let reveals = document.querySelectorAll(".scroll-reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    reveals[i].classList.add("visible");
+                }
+            }
+        };
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
 
 </html>

@@ -4,22 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ピラミッド宇宙人説は本当か？ | Truth Seeker</title>
-    <meta name="description" content="エジプトのギザの大ピラミッドにまつわる「宇宙人建造説」を、最新の考古学データと技術的視点から中立的に検証します。">
+    <title>ピラミッド建設の謎：宇宙人説 vs 最新考古学 | Truth Seeker</title>
+    <meta name="description"
+        content="数百万個の巨石を積み上げたクフ王のピラミッド。なぜ古代エジプト人はあれほど精密な建造物を造れたのか。「宇宙人関与説」の矛盾と、現代考古学が解明した驚愕の土木技術を詳解します。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: #334155;
-            --header-h: 70px;
+            --bg-base: #020617;
+            --bg-surface: rgba(15, 23, 42, 0.7);
+            --bg-accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-dim: #64748b;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --header-blur: 15px;
+            --container-w: 840px;
         }
 
         * {
@@ -29,243 +33,400 @@
         }
 
         body {
-            font-family: 'Inter', 'Noto Sans JP', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
             line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%),
+                radial-gradient(circle at -10% 40%, #0f172a 0%, transparent 40%);
         }
 
         header {
-            height: var(--header-h);
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
             position: fixed;
-            width: 100%;
-            top: 0;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            height: 60px;
+            background: rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(var(--header-blur));
+            border: 1px solid var(--border-glass);
+            border-radius: 40px;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .nav-wrapper {
+        .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%;
+            width: 100%;
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
             text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .post-hero {
-            padding-top: calc(var(--header-h) + 4rem);
-            padding-bottom: 3rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 3rem;
-        }
-
-        .post-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.85rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .post-hero h1 {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #fff, #fbbf24);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .post-intro {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            border-left: 3px solid var(--accent);
-            padding-left: 1.5rem;
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
         }
 
-        section {
-            margin-bottom: 4rem;
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--bg-accent);
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--bg-accent);
+            width: 0%;
+            box-shadow: 0 0 10px var(--bg-accent);
+        }
+
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .category-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--bg-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: var(--accent-glow);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -0.02em;
+        }
+
+        .post-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.9;
+        }
+
+        main {
+            max-width: var(--container-w);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+
+        article section {
+            background: var(--bg-surface);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: clamp(1.5rem, 5vw, 3.5rem);
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        article section:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
         }
 
         h2 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
             display: flex;
             align-items: center;
-            color: var(--accent);
         }
 
         h2::before {
-            content: '';
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--accent);
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: var(--bg-accent);
             margin-right: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--bg-accent);
         }
 
         p {
             margin-bottom: 1.5rem;
-            color: var(--text-main);
+            font-size: 1.05rem;
         }
 
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), transparent);
-            border: 1px solid #fbbf24;
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin: 4rem 0;
+        .info-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--bg-accent);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
         }
 
-        .conclusion-box h3 {
-            color: #fbbf24;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+        .info-box strong {
+            color: var(--bg-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit';
+            text-transform: uppercase;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 2px solid var(--bg-accent) !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--bg-accent);
+            position: relative;
+            z-index: 1;
         }
 
         footer {
-            border-top: 1px solid var(--border);
-            padding: 4rem 0;
+            margin-top: 80px;
+            padding: 100px 0 60px;
+            border-top: 1px solid var(--border-glass);
             text-align: center;
-            color: var(--text-muted);
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--text-dim);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
-            .post-hero h1 {
-                font-size: 2.2rem;
+            header {
+                padding: 0 1rem;
+                width: 95%;
             }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            article section {
+                padding: 1.5rem;
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <header>
-        <div class="container" style="max-width: 1000px;">
-            <div class="nav-wrapper">
-                <a href="../index.html" class="logo">Truth Seeker</a>
-                <nav>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../about.html">About</a></li>
-                        <li><a href="../contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">TRUTH SEEKER</a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main class="container">
-        <article>
-            <div class="post-hero">
-                <div class="post-meta">
-                    <span>File No. 005</span>
-                    <span>•</span>
-                    <span>Archaeology & Tech</span>
-                </div>
-                <h1>ピラミッド宇宙人建造説は本当か？人類の叡智と「見えない痕跡」への検証</h1>
-                <p class="post-intro">
-                    エジプト・ギザの大ピラミッド。4500年以上の歳月を経てなお、その圧倒的存在感は多くの謎を投げかけます。古くから語られる「オーパーツ（場違いな加工品）」としての宇宙人関与説。本記事では、この魅力的な異説を最新科学と考古学的証拠に基づき、冷徹かつ中立的に解剖します。
-                </p>
-            </div>
+    <div class="hero">
+        <span class="category-tag">File No. 008 • Ancient Technology & Civilizations</span>
+        <h1>ピラミッド建設の謎：<br><span style="color: var(--text-secondary);">巨石が語る驚異の「人力」エンジニアリング</span></h1>
+        <p class="post-intro">
+            砂漠に聳えるクフ王の巨大建造物。古代エジプト人は、現代のクレーンも鉄鋼もない時代に、いかにして平均2.5トンの石灰岩を230万個も精密に積み上げたのでしょうか。宇宙人説を凌駕する「真実の知恵」を追います。
+        </p>
+    </div>
 
-            <!-- 1. 都市伝説の概要 -->
-            <section id="overview">
+    <main>
+        <article>
+            <section class="scroll-reveal">
                 <h2>1. 都市伝説の概要</h2>
                 <p>
-                    「ピラミッド宇宙人説（古代宇宙飛行士説）」とは、古代エジプト人が当時の技術力では到達不可能な高度な建築・測量技術を、地球外生命体から提供された、あるいは彼ら自身が直接建設したとする言説です。
+                    この伝説の代表格は、「当時の人類の技術では不可能であり、地球外生命体（宇宙人）からの技術提供があった」とするものです。
                 </p>
                 <p>
-                    主な根拠として挙げられるのは、以下の3点です。第一に、数トンの巨石を寸分の狂いもなく積み上げる精密さ。第二に、東西南北に対する極めて正確な配置。そして第三に、クフ王のピラミッドの寸法が、地球の円周比や光速など、現代科学のみが知り得る数値と奇妙に一致するという主張です。これらの要素が重なり合い、「当時の未開な人類に、これほどの偉業が可能だったはずがない」という直感が、宇宙人という補助線を必要とさせました。
+                    石材同士の隙間にカミソリの刃も入らないという驚異的な精度。地球の赤道半径との数学的一致。これらは「神」や「超文明」の存在を信じたい人々にとって、格好の証拠となりました。
                 </p>
             </section>
 
-            <!-- 2. なぜ広まったのか -->
-            <section id="viral-reason">
+            <section class="scroll-reveal">
                 <h2>2. なぜ広まったのか</h2>
                 <p>
-                    この説が世界的に広まった最大のトリガーは、1960年代後半から70年代にかけてのエーリッヒ・フォン・デニケンによる著作『未来の記憶』などのベストセラーです。冷戦下の宇宙開発競争という時代背景もあり、人類の関心が外世界へ向いていた時期、古代遺跡に宇宙人の影を見る物語は、人々の想像力に深く突き刺さりました。
+                    理由は単純です。<strong>「現代人の傲慢さ」</strong>です。私たちは、電力や重機のない古代人がこれほど高度なことを成し遂げたと認めることができず、安易に「外部の力」に答えを求めてしまったのです。
                 </p>
+                <div class="info-box">
+                    <strong>VIRAL ANALYSIS</strong>
+                    <p>この「説明できない」という空隙を、SF映画やアニメのようなファンタジーが埋めることで、エンターテインメントとしての陰謀論が定着しました。</p>
+                </div>
                 <p>
-                    また、19世紀以前の西洋社会において「古代エジプト人＝奴隷制度を用いた野蛮な民族」という偏見があったことも一因です。彼らにこれほどの知能があったと認めたくないという心理が、外部からの高度な文明流入という極端な仮説へのハードルを下げたという皮肉な側面もあります。現代においては、複雑な考古学的データよりも「宇宙人のテクノロジー」というシンプルかつ神秘的な説明スタイルが、エンターテインメントとして受け入れられやすい土壌を作っています。
+                    しかし、近年の発掘調査で、ピラミッドは「奴隷が鞭打たれて造った」のではなく、「高度な技術を持つ専門職たちの誇り高き共同事業」であったことが明らかになっています。
                 </p>
             </section>
 
-            <!-- 3. 科学的・歴史的検証 -->
-            <section id="verification">
-                <h2>3. 科学的・歴史的検証</h2>
+            <section class="scroll-reveal">
+                <h2>3. 最新科学による検証</h2>
                 <p>
-                    近年の考古学は、宇宙人の助けがなくとも人類がピラミッドを建設できた道筋を、実証的に示しつつあります。
+                    2010年代以降の発見は、宇宙人説を決定的に否定しています。
                 </p>
                 <p>
-                    まず「建築技術」について。2013年、紅海に近いワディ・アル・ジャルフで発見された「メレルの日記」と呼ばれるパピルスには、石灰岩をトゥーラからギザまで船で運搬した詳細な記録が残されていました。これは、建設が「奇跡」ではなく、高度な物流管理に基づいた膨大かつ組織的な公共事業であったことを裏付けています。また、石材の切り出し跡や、斜面を用いた運搬のシミュレーションにより、単純な力学と潤滑（濡れた砂を用いた摩擦軽減など）の応用で巨石移動が可能であったことが証明されています。
+                    まず、<strong>「水路」の活用</strong>です。ナイル川から建設現場まで緻密に設計された運河が引かれ、浮力を利用して巨石を運搬していた証拠が見つかりました。
                 </p>
                 <p>
-                    「精度」の問題に関しても、古代エジプト人が「影」を用いた精密な方位測定法を有していたことが近年の研究で判明しました。わずか数ミリの誤差は、彼らが長年の観測から導き出した叡智の結晶であり、未知のテクノロジーを前提とする必要はありません。さらに、最近のスキャン・ピラミッド計画（ミューオンを用いた非破壊検査）では、内部に空洞が発見されましたが、これも構造的な重量分散や未完成の作業跡としての説明が考古学的に検討されています。
+                    また、石の切り出しについても、濡れた木の楔（くさび）が膨らむ力を利用するという、自然の物理法則を巧みに操る「経験知」に基づいたものであったことが再現実験で証明されています。
                 </p>
             </section>
 
-            <!-- 4. 残る疑問 -->
-            <section id="remaining-mysteries">
+            <section class="scroll-reveal">
                 <h2>4. 残る疑問</h2>
                 <p>
-                    一方で、全てのパズルが埋まったわけではありません。最大の疑問は「作業期間」です。一般的な推定によれば、クフ王のピラミッドは約20年で完成したとされています。230万個の石を積み上げる場合、計算上は数分に1個の石を配置し続ける過酷なスケジュールとなり、これを当時の組織力だけで実現したという点には、依然として驚異的な効率性が求められます。
+                    物理的な建設法は見えてきましたが、今なお議論されているのは「動機」と「測量法」です。
                 </p>
                 <p>
-                    また、ピラミッド内の「王の間」に見られる硬い花崗岩の精密な切断加工は、銅製のノコギリと砂研磨だけで可能とする説明には納得しない専門家やエンジニアも存在します。彼らは、極めて高い熱量や超音波加工のような痕跡を、その滑らかな表面から「読み取ろう」としています。これらは主流派考古学では否定されていますが、当時の「現場」で実際に何が起きていたのか、そのラスト・ワンマイルの技術革新については、未だ暗闇の中にあります。
+                    真北に対して0.05度という驚異的な誤差で配置する技術。GPSもレーザーもない時代、彼らは星の動きと「水」の水平面をいかにして組み合わせ、この狂いなき座標を導き出したのか。その「測定」に関する知的プロセスは、今なお研究者たちに刺激的な謎を提供し続けています。
                 </p>
             </section>
 
-            <!-- 5. 合理的結論 -->
-            <section id="conclusion" class="conclusion-box">
+            <section class="scroll-reveal conclusion">
                 <h3>5. 合理的結論</h3>
                 <p>
-                    現時点での最も合理的な結論は、<strong>「ピラミッドは数千年にわたる試行錯誤を経て到達した、古代エジプト人の集団的知性と執念の結晶である」</strong>というものです。
+                    ピラミッド建設にまつわる宇宙人説の正体は、<strong>「古代人の知性と執念に対する、現代人の無理解」</strong>が生んだ幻想です。
                 </p>
                 <p>
-                    宇宙人説は、人類の可能性を過小評価することから生まれる「甘い幻想」かもしれません。しかし、その幻想さえも惹きつけてしまうほどの巨大な構造物を、粘土と銅と人力だけで作り上げたという事実こそが、むしろ宇宙人説以上に「超自然的」で誇るべき人類のドラマであると言えるでしょう。
+                    ピラミッドは魔法で造られたのではありません。厖大な時間、驚異的な組織力、そして何世代にもわたって継承された「トライ＆エラー」の結果です。
                 </p>
-                <p style="margin-top: 2rem; font-style: italic; color: #fbbf24;">
-                    星に助けを求める必要はありません。答えは常に、この大地の砂の下に刻まれています。
+                <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
+                    巨石の隙間に詰まっているのは、宇宙の神秘ではなく、人間の不屈のエンジニアリング精神です。
                 </p>
             </section>
         </article>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Truth Seeker - Logical Urban Legend Verification Project.</p>
-            <nav style="font-size: 0.85rem; margin-top: 1rem;">
-                <a href="../about.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">当サイトについて</a>
-                <a href="../contact.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">お問い合わせ</a>
-                <a href="../privacy.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">プライバシーポリシー</a>
-            </nav>
+        <span class="footer-logo">TRUTH SEEKER</span>
+        <div class="footer-nav">
+            <a href="../about.html">About Us</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.
         </div>
     </footer>
+
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+
+            let reveals = document.querySelectorAll(".scroll-reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    reveals[i].classList.add("visible");
+                }
+            }
+        };
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
 
 </html>

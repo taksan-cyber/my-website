@@ -10,17 +10,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: #334155;
-            --header-h: 70px;
+            --bg-base: #020617;
+            --bg-surface: rgba(15, 23, 42, 0.7);
+            --bg-accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-dim: #64748b;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --header-blur: 15px;
+            --container-w: 840px;
         }
 
         * {
@@ -30,224 +33,367 @@
         }
 
         body {
-            font-family: 'Inter', 'Noto Sans JP', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
             line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%),
+                radial-gradient(circle at -10% 40%, #0f172a 0%, transparent 40%);
         }
 
         header {
-            height: var(--header-h);
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
             position: fixed;
-            width: 100%;
-            top: 0;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            height: 60px;
+            background: rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(var(--header-blur));
+            border: 1px solid var(--border-glass);
+            border-radius: 40px;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .nav-wrapper {
+        .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%;
+            width: 100%;
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
             text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .post-hero {
-            padding-top: calc(var(--header-h) + 4rem);
-            padding-bottom: 3rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 3rem;
-        }
-
-        .post-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.85rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .post-hero h1 {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #fff, #94a3b8);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .post-intro {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            border-left: 3px solid var(--accent);
-            padding-left: 1.5rem;
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
         }
 
-        section {
-            margin-bottom: 4rem;
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--bg-accent);
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--bg-accent);
+            width: 0%;
+            box-shadow: 0 0 10px var(--bg-accent);
+        }
+
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .category-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--bg-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: var(--accent-glow);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -0.02em;
+        }
+
+        .post-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.9;
+        }
+
+        main {
+            max-width: var(--container-w);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+
+        article section {
+            background: var(--bg-surface);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: clamp(1.5rem, 5vw, 3.5rem);
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        article section:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
         }
 
         h2 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
             display: flex;
             align-items: center;
-            color: var(--accent);
         }
 
         h2::before {
-            content: '';
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--accent);
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: var(--bg-accent);
             margin-right: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--bg-accent);
         }
 
         p {
             margin-bottom: 1.5rem;
-            color: var(--text-main);
+            font-size: 1.05rem;
         }
 
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), transparent);
-            border: 1px solid var(--accent);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin: 4rem 0;
+        .info-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--bg-accent);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
         }
 
-        .conclusion-box h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+        .info-box strong {
+            color: var(--bg-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit';
+            text-transform: uppercase;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 2px solid var(--bg-accent) !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--bg-accent);
+            position: relative;
+            z-index: 1;
         }
 
         footer {
-            border-top: 1px solid var(--border);
-            padding: 4rem 0;
+            margin-top: 80px;
+            padding: 100px 0 60px;
+            border-top: 1px solid var(--border-glass);
             text-align: center;
-            color: var(--text-muted);
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--text-dim);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
-            .post-hero h1 {
-                font-size: 2.2rem;
+            header {
+                padding: 0 1rem;
+                width: 95%;
             }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            article section {
+                padding: 1.5rem;
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <header>
-        <div class="container" style="max-width: 1000px;">
-            <div class="nav-wrapper">
-                <a href="../index.html" class="logo">Truth Seeker</a>
-                <nav>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../about.html">About</a></li>
-                        <li><a href="../contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">TRUTH SEEKER</a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main class="container">
-        <article>
-            <div class="post-hero">
-                <div class="post-meta">
-                    <span>File No. 011</span>
-                    <span>•</span>
-                    <span>Archaeology & Anthropology</span>
-                </div>
-                <h1>古代文明超技術説を検証：彼らは「未来」を先取りしていたのか？</h1>
-                <p class="post-intro">
-                    数千年前の地層から発見される、当時の科学レベルでは説明できないとされるオーパーツ（場違いな工芸品）。なぜ現代の私たちは、古代人の知性を過小評価し、そこに「超技術」や「外部の介入」を夢見てしまうのでしょうか。
-                </p>
-            </div>
+    <div class="hero">
+        <span class="category-tag">File No. 011 • Archaeology & Anthropology</span>
+        <h1>古代文明超技術説を検証：<br><span style="color: var(--text-secondary);">彼らは「未来」を先取りしていたのか？</span></h1>
+        <p class="post-intro">
+            数千年前の地層から発見される、当時の科学レベルでは説明できないとされるオーパーツ（場違いな工芸品）。なぜ現代の私たちは、古代人の知性を過小評価し、そこに「超技術」や「外部の介入」を夢見てしまうのでしょうか。
+        </p>
+    </div>
 
-            <!-- 1. 都市伝説の概要 -->
-            <section id="overview">
+    <main>
+        <article>
+            <section class="scroll-reveal">
                 <h2>1. 都市伝説の概要</h2>
                 <p>
                     この伝説の根幹は、「古代文明の背後には、現代文明を凌駕する（あるいは匹敵する）ロストテクノロジーが存在した」という考えです。
                 </p>
                 <p>
-                    ナスカの地上絵を「滑走路」とし、古代エジプトが「電球」を使用していたと主張し、黄金の飛行機を古代のジェット機と見なす。これらは、考古学的文脈を無視し、現代の道具に似た形をしているというだけの理由で飛躍した解釈を行うことで成立しています。この説は、私たちの想像力を刺激し、「歴史は単調な進化ではなく、一度頂点を極めて崩壊した」というロマンを供給し続けています。
+                    ピラミッドを巨大な発電装置とし、ナスカの地上絵を「滑走路」と見なす。こうした解釈は、現代中心的な視点で古代の遺物を読み替えることで成立しています。この説は「人類は一度頂点を極めて崩壊した」というロマンを供給し続けています。
                 </p>
             </section>
 
-            <!-- 2. なぜ広まったのか -->
-            <section id="viral-reason">
+            <section class="scroll-reveal">
                 <h2>2. なぜ広まったのか</h2>
                 <p>
-                    主な理由は<strong>「パレイドリア（意味の読み取り）」</strong>と<strong>「クロノセントリズム（現代中心主義）」</strong>です。人間には見慣れない形を自分たちが知っているもの（飛行機、電卓など）に当てはめる習性があります。
+                    主な理由は<strong>「パレイドリア（意味の読み取り）」</strong>と<strong>「クロノセントリズム（現代中心主義）」</strong>です。人間には見慣れない形を熟知している道具（飛行機、電球など）に当てはめる習性があります。
                 </p>
+                <div class="info-box">
+                    <strong>VIRAL ANALYSIS</strong>
+                    <p>現代人は「電力やガソリンがなければ高度なことはできない」と思い込む傾向があり、そのギャップが「超技術」という幻想を生んでいます。</p>
+                </div>
                 <p>
-                    また、現代人は「電力やガソリン、電気がなければ高度なことはできない」と思い込む傾向があります。古代人が途方もない時間と工夫をかけて成し遂げた成果を、現代的な尺度の「効率」で測ろうとするため、そのギャップが「魔法か超技術によるものだ」という結論を安易に導き出してしまうのです。1960年代のエーリッヒ・フォン・デニケンによる「神々の車」などの著作が、この考えを全世界に普及させる大きな触媒となりました。
+                    古代人が途方もない時間と工夫をかけて成し遂げた成果を、現代の「効率」で測ろうとすることが、安易な結論を導き出す要因となっています。
                 </p>
             </section>
 
-            <!-- 3. 科学的・歴史的検証 -->
-            <section id="verification">
+            <section class="scroll-reveal">
                 <h2>3. 科学的・歴史的検証</h2>
                 <p>
                     多くの「オーパーツ」は、最新の考古学的調査によって当時の技術水準の中で十分に説明されています。
                 </p>
                 <p>
-                    例えば、ギリシャの海底から見つかった「アンティキティラ島の機械」。これは非常に精巧な天体計算機であり、発見当時は「場違いな技術」とされました。しかし、その後の研究で、古代ギリシャの数学的知識と、失われてしまっただけで確かに存在した高い青銅鋳造技術の結実であることが判明しました。これはオーバーテクノロジーではなく、その時代の技術が私たちが想像していたよりも遥かに高みに達していたことを示しています。
+                    「アンティキティラ島の機械」は、当時のギリシャが持っていた高度な数学的知識と青銅鋳造技術の結晶であることが判明しました。これはオーバーテクノロジーではなく、当時の文明の到達点が私たちの想像以上に高かったことを示しています。
                 </p>
                 <p>
-                    同様に、ピラミッドの巨大石材の切断や運搬についても、実験考古学によって当時の銅製の工具と砂を用いた研磨、そして複雑な傾斜路や浮力の活用によって現実的に可能であることが証明されています。問題は古代人に技術がなかったことではなく、現代人が「古代人は野蛮で無知だった」という偏見を持っていたことにあるのです。
+                    ピラミッドの建設も、実験考古学により、当時の道具と厖大な時間、そして流体力学などの応用によって現実的に可能であることが証明されています。
                 </p>
             </section>
 
-            <!-- 4. 残る疑問 -->
-            <section id="remaining-mysteries">
+            <section class="scroll-reveal">
                 <h2>4. 残る疑問</h2>
                 <p>
                     しかし、単なる「工夫」では説明し切れない謎もあります。それは、「失われた知識のギャップ」です。
                 </p>
                 <p>
-                    例えばダマスカス鋼の製法や、古代ローマのコンクリート。これらは現代の技術でも完全な再現が難しく、ある時期を境にプツリと記録が途絶えています。これらはオーパーツではなく「高度な経験則に基づいた門外不出の技術」だったと考えられますが、なぜこれほど有用な技術が保存されずに消滅したのか。そこには戦争、疫病、あるいは宗教的迫害といった歴史の暗部による、極めて高度な「知的情報の断絶」が存在したことを物語っています。
+                    ダマスカス鋼の製法や古代ローマのコンクリートなど、ある時期を境に記録が途絶え、現代の技術でも完全な再現が難しいものが存在します。
+                </p>
+                <p>
+                    これらはオーパーツではなく「高度な経験則に基づいた技術」でしょうが、なぜこれほど有用な技術が消滅したのか。そこに歴史の暗部による「知的情報の断絶」が存在したことは確かです。
                 </p>
             </section>
 
-            <!-- 5. 合理的結論 -->
-            <section id="conclusion" class="conclusion-box">
+            <section class="scroll-reveal conclusion">
                 <h3>5. 合理的結論</h3>
                 <p>
                     古代文明超技術説の正体は、<strong>「私たちの時間感覚の欠如が生んだ、古代人の執念と知性に対する不当な過小評価」</strong>です。
                 </p>
                 <p>
-                    古代人は魔法を使っていたのではなく、現代人には真似できないほどの「時間」と「集中力」、そして「極限まで磨かれた身体能力と感覚」を持っていました。超技術を求めることは、彼らが注いだ多大なる努力と創意工夫を否定することに他なりません。
+                    古代人は現代人には真似できないほどの「時間」と「集中力」、そして「極限まで磨かれた五感」を持っていました。超技術を求めることは、彼らの創意工夫を否定することに他なりません。
                 </p>
-                <p style="margin-top: 2rem; font-style: italic; color: var(--accent);">
+                <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
                     本当の奇跡は、宇宙人や機械の助けではなく、知恵と手だけで文明を築いた、ありのままの人類の姿です。
                 </p>
             </section>
@@ -255,18 +401,35 @@
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Truth Seeker - Logical Urban Legend Verification Project.</p>
-            <nav style="font-size: 0.85rem; margin-top: 1rem;">
-                <a href="../about.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">当サイトについて</a>
-                <a href="../contact.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">お問い合わせ</a>
-                <a href="../privacy.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">プライバシーポリシー</a>
-            </nav>
+        <span class="footer-logo">TRUTH SEEKER</span>
+        <div class="footer-nav">
+            <a href="../about.html">About Us</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.
         </div>
     </footer>
+
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+
+            let reveals = document.querySelectorAll(".scroll-reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    reveals[i].classList.add("visible");
+                }
+            }
+        };
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
 
 </html>

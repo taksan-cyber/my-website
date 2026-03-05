@@ -5,21 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>バミューダトライアングルの科学的説明 | Truth Seeker</title>
-    <meta name="description" content="魔の海域「バミューダトライアングル」で起きる失踪事件。メタンハイドレート、磁気異常、気象現象など、科学的仮説に基づきその真相を解剖します。">
+    <meta name="description" content="魔の海域「バミューダトライアングル」で起きる失踪事件。メタンハイドレート、磁気異常、気象現象など、科学적仮説に基づきその真相を解剖します。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: #334155;
-            --header-h: 70px;
+            --bg-base: #020617;
+            --bg-surface: rgba(15, 23, 42, 0.7);
+            --bg-accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-dim: #64748b;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --header-blur: 15px;
+            --container-w: 840px;
         }
 
         * {
@@ -29,227 +32,361 @@
         }
 
         body {
-            font-family: 'Inter', 'Noto Sans JP', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
             line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%),
+                radial-gradient(circle at -10% 40%, #0f172a 0%, transparent 40%);
         }
 
         header {
-            height: var(--header-h);
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
             position: fixed;
-            width: 100%;
-            top: 0;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            height: 60px;
+            background: rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(var(--header-blur));
+            border: 1px solid var(--border-glass);
+            border-radius: 40px;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .nav-wrapper {
+        .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%;
+            width: 100%;
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
             text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .post-hero {
-            padding-top: calc(var(--header-h) + 4rem);
-            padding-bottom: 3rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 3rem;
-        }
-
-        .post-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.85rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .post-hero h1 {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #fff, #38bdf8);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .post-intro {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            border-left: 3px solid var(--accent);
-            padding-left: 1.5rem;
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
         }
 
-        section {
-            margin-bottom: 4rem;
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--bg-accent);
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--bg-accent);
+            width: 0%;
+            box-shadow: 0 0 10px var(--bg-accent);
+        }
+
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .category-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--bg-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: var(--accent-glow);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -0.02em;
+        }
+
+        .post-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.9;
+        }
+
+        main {
+            max-width: var(--container-w);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+
+        article section {
+            background: var(--bg-surface);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: clamp(1.5rem, 5vw, 3.5rem);
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        article section:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
         }
 
         h2 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
             display: flex;
             align-items: center;
-            color: var(--accent);
         }
 
         h2::before {
-            content: '';
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--accent);
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: var(--bg-accent);
             margin-right: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--bg-accent);
         }
 
         p {
             margin-bottom: 1.5rem;
-            color: var(--text-main);
+            font-size: 1.05rem;
         }
 
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), transparent);
-            border: 1px solid var(--accent);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin: 4rem 0;
+        .info-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--bg-accent);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
         }
 
-        .conclusion-box h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+        .info-box strong {
+            color: var(--bg-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit';
+            text-transform: uppercase;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 2px solid var(--bg-accent) !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--bg-accent);
+            position: relative;
+            z-index: 1;
         }
 
         footer {
-            border-top: 1px solid var(--border);
-            padding: 4rem 0;
+            margin-top: 80px;
+            padding: 100px 0 60px;
+            border-top: 1px solid var(--border-glass);
             text-align: center;
-            color: var(--text-muted);
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--text-dim);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
-            .post-hero h1 {
-                font-size: 2.2rem;
+            header {
+                padding: 0 1rem;
+                width: 95%;
             }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            article section {
+                padding: 1.5rem;
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <header>
-        <div class="container" style="max-width: 1000px;">
-            <div class="nav-wrapper">
-                <a href="../index.html" class="logo">Truth Seeker</a>
-                <nav>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../about.html">About</a></li>
-                        <li><a href="../contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">TRUTH SEEKER</a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main class="container">
-        <article>
-            <div class="post-hero">
-                <div class="post-meta">
-                    <span>File No. 007</span>
-                    <span>•</span>
-                    <span>Oceanography & Physics</span>
-                </div>
-                <h1>バミューダトライアングルの科学的説明：魔の海域に潜む「透明な脅威」</h1>
-                <p class="post-intro">
-                    フロリダ、プエルトリコ、バミューダ諸島を結ぶ三角形の海域。古くから航空機や船舶が忽然と姿を消すとされるこの「魔の三角地帯」の謎を、最新の地球科学と統計学の視点から紐解きます。
-                </p>
-            </div>
+    <div class="hero">
+        <span class="category-tag">File No. 007 • Oceanography & Physics</span>
+        <h1>バミューダトライアングルの科学的説明：<br><span style="color: var(--text-secondary);">魔の海域に潜む「透明な脅威」</span></h1>
+        <p class="post-intro">
+            フロリダ、プエルトリコ、バミューダ諸島を結ぶ三角形の海域。古くから航空機や船舶が忽然と姿を消すとされるこの「魔の三角地帯」の謎を、最新の地球科学と統計学の視点から紐解きます。
+        </p>
+    </div>
 
-            <!-- 1. 都市伝説の概要 -->
-            <section id="overview">
+    <main>
+        <article>
+            <section class="scroll-reveal">
                 <h2>1. 都市伝説の概要</h2>
                 <p>
-                    バミューダトライアングルとは、大西洋西部の約130万平方キロメートルに及ぶ海域を指します。この場所では、1945年の米軍機「フライト19」の失踪事件を筆頭に、数百に及ぶ航空機や船が跡形もなく消え去り、救助隊さえも犠牲になったという物語が語り継がれてきました。
+                    この海域では、1945年の「フライト19」失踪事件を筆頭に、数百の航空機や船が跡形もなく消え去ったと語り継がれてきました。異次元へのポータルやアトランティスの遺物といった、空想的な陰謀論を育む絶好の材料となっています。
                 </p>
                 <p>
-                    「方位磁石が狂う」「計器が機能しなくなる」「突然の濃霧に包まれる」といった目撃談は、異次元へのポータル、アトランティス帝国の遺物、あるいは宇宙人による拉致といった、空想的な陰謀論を育む絶好の材料となりました。この海域は「死の海」として、人々の恐怖と好奇心を刺激し続けています。
+                    「方位磁石が狂う」「計器が機能しなくなる」といった目撃談は、この海域を「死の海」として人々の恐怖を刺激し続けています。
                 </p>
             </section>
 
-            <!-- 2. なぜ広まったのか -->
-            <section id="viral-reason">
+            <section class="scroll-reveal">
                 <h2>2. なぜ広まったのか</h2>
                 <p>
-                    この伝説が世界的な現象となったのは、1970年代の「超常現象ブーム」と、メディアの誇大広告が大きく関わっています。1974年にチャールズ・ベルリッツが著した『バミューダ・トライアングル』が爆発的なベストセラーとなり、不確かな情報を「未解決の怪異」としてパッケージ化して紹介したことが決定打となりました。
+                    この伝説が世界化したのは、1970年代の「超常現象ブーム」と、ベストセラー『バミューダ・トライアングル』による誇大広告が大きく関わっています。
                 </p>
+                <div class="info-box">
+                    <strong>VIRAL ANALYSIS</strong>
+                    <p>心理学的な「生存者バイアス」が働き、無事に通過した何百万の記録は無視され、稀な悲劇だけが強調されて記憶に定着しました。</p>
+                </div>
                 <p>
-                    心理学的には「生存者バイアス」と「不確定情報への執着」が働いています。無事に通過した何百万という船の記録は無視され、ごく稀に起きた悲劇的な事故だけが「バミューダの呪い」として集中的に報じられることで、人々の記憶に歪んだ認知が形成されました。さらに、この地域が軍事境界や交通の要衝であるため、情報の秘匿や単純な事故の多さが、ミステリーを補強する強力な背景となったのです。
+                    交通の要衝であるため事故数そのものが多く、それがミステリーを補強する強力な背景となったのです。
                 </p>
             </section>
 
-            <!-- 3. 科学的・歴史的検証 -->
-            <section id="verification">
-                <h2>3. 科学的・歴史的検証</h2>
+            <section class="scroll-reveal">
+                <h2>3. 科学的な検証</h2>
                 <p>
-                    現代の科学は、この海域における「怪異」を複数の現実的な要因の組み合わせとして説明しています。
+                    現代科学は、この「怪異」を複数の現実的な要因の組み合わせとして説明しています。海底からの「メタンハイドレート」噴出による浮力喪失、残骸を一瞬で流し去る強力な「メキシコ湾流」、そして30メートル級の「巨大波」の存在です。
                 </p>
                 <p>
-                    第一の有力な説は「メタンハイドレート」による影響です。海底から大量のメタンガスが噴出すると、海水の密度が急激に低下し、船が浮力を失って瞬時に沈没します。また、空中に放出されたメタンはエンジンのピストンを異常燃焼させ、航空機を墜落させる原因にもなります。
-                </p>
-                <p>
-                    第二に「メキシコ湾流」の存在です。この強力で速い海流は、事故後の残骸を数時間で何百キロも遠くへ押し流してしまいます。「残骸が見つからない」という謎の多くは、この海流の速さによって説明がつきます。さらに、この海域特有の「マイクロバースト」と呼ばれる局所的な突風や、一瞬で30メートル級の波が発生する「巨大波（ならずもの波）」が、多くの小規模な船舶を飲み込んできたことが衛星データから明らかになっています。
-                </p>
-                <p>
-                    統計学的な検証も行われています。世界最大の保険会社ロイズ・オブ・ロンドンは、「バミューダ海域の事故率は、他の交通量の多い海域と比較しても統計的に有意な差はない」という公式見解を長年維持しています。つまり、交通量に比例した事故数であり、特定の「魔の力」は存在しないというのが冷徹な事実です。
+                    統計学的にも、事故率は他の過密海域と比較して有意な差はなく、特定の「魔の力」は存在しないというのが冷徹な事実です。
                 </p>
             </section>
 
-            <!-- 4. 残る疑問 -->
-            <section id="remaining-mysteries">
+            <section class="scroll-reveal">
                 <h2>4. 残る疑問</h2>
                 <p>
-                    しかし、物理的な説明ですべてが解決したわけではありません。今なお検証が続いているのは、この海域における「磁気異常」の実態です。
+                    しかし、物理的な説明ですべてが決着したわけではありません。今なお検証が続いているのは、磁気異常の実態です。
                 </p>
                 <p>
-                    バミューダトライアングルは、真北（地理学上の北）と磁北（コンパスの北）が一致する数少ない地点の一つです。慣れない操縦士がこの「偏差ゼロ」の現象に遭遇した際、ナビゲーションに重大なミスを犯す可能性が指摘されています。また、この海域特有の気象現象が、航空機の通信機器にどのような電磁気的干渉を及ぼすのか、その詳細なメカニズムについては、現在も航空気象学のフロンティアとして研究が続いています。
+                    ここは「真北」と「磁北」が一致する稀な地点であり、操縦士が「偏差ゼロ」に遭遇した際のナビゲーションミスが事故を誘発する可能性が指摘されています。気象現象による電磁気的干渉のメカニズムは、現在も研究の途上にあります。
                 </p>
             </section>
 
-            <!-- 5. 合理的結論 -->
-            <section id="conclusion" class="conclusion-box">
+            <section class="scroll-reveal conclusion">
                 <h3>5. 合理的結論</h3>
                 <p>
-                    バミューダトライアングルの正体は、<strong>「激しい海流と気象変化、そして海底資源の特性が織りなす極めて危険だが物理的な自然要因の複合体」</strong>であるといえます。
+                    バミューダトライアングルの正体は、<strong>「激しい海流と気象変化、そして海底資源の特性が織りなす極めて危険だが物理的な自然要因の複合体」</strong>です。
                 </p>
                 <p>
-                    アトランティスや異次元の入り口は存在しません。しかし、自然界が時に人間の想像を超える牙を剥くという事実は、物理学の言葉で語られたとしてもなお、畏怖の念を抱かせるに十分なミステリーです。
+                    異次元の入り口は存在しません。しかし、自然界が時に人間の想像を超える牙を剥くという事実は、依然として畏怖を抱かせるに十分なミステリーです。
                 </p>
-                <p style="margin-top: 2rem; font-style: italic; color: var(--accent);">
+                <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
                     海は秘密を隠すのではなく、ただ人間の理屈が追いつかないほどの深淵を抱えているだけなのです。
                 </p>
             </section>
@@ -257,18 +394,35 @@
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Truth Seeker - Logical Urban Legend Verification Project.</p>
-            <nav style="font-size: 0.85rem; margin-top: 1rem;">
-                <a href="../about.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">当サイトについて</a>
-                <a href="../contact.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">お問い合わせ</a>
-                <a href="../privacy.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">プライバシーポリシー</a>
-            </nav>
+        <span class="footer-logo">TRUTH SEEKER</span>
+        <div class="footer-nav">
+            <a href="../about.html">About Us</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.
         </div>
     </footer>
+
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+
+            let reveals = document.querySelectorAll(".scroll-reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    reveals[i].classList.add("visible");
+                }
+            }
+        };
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
 
 </html>

@@ -4,22 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>人はなぜ陰謀論を信じるのか：心の隙間を埋める認知の罠 | Truth Seeker</title>
-    <meta name="description" content="高学歴でも、冷静な人でも、なぜ人は陰謀論の罠に落ちてしまうのか。認知バイアス、帰属理論、自尊心の維持といった心理学的な視点から「信じるメカニズム」を徹底分析。">
+    <title>なぜ陰謀論を信じてしまうのか？心理学から見る真実 | Truth Seeker</title>
+    <meta name="description"
+        content="情報の海を漂う陰謀論。なぜ私たちの脳は、不確かな情報を「真実」として受け入れてしまうのでしょうか。「脳の報酬系」「防衛本能」「認知バイアス」など、心理学的アプローチでそのメカニズムを解明します。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: #334155;
-            --header-h: 70px;
+            --bg-base: #020617;
+            --bg-surface: rgba(15, 23, 42, 0.7);
+            --bg-accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-dim: #64748b;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --header-blur: 15px;
+            --container-w: 840px;
         }
 
         * {
@@ -29,243 +33,397 @@
         }
 
         body {
-            font-family: 'Inter', 'Noto Sans JP', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
             line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%),
+                radial-gradient(circle at -10% 40%, #0f172a 0%, transparent 40%);
         }
 
         header {
-            height: var(--header-h);
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
             position: fixed;
-            width: 100%;
-            top: 0;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            height: 60px;
+            background: rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(var(--header-blur));
+            border: 1px solid var(--border-glass);
+            border-radius: 40px;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .nav-wrapper {
+        .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%;
+            width: 100%;
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
             text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .post-hero {
-            padding-top: calc(var(--header-h) + 4rem);
-            padding-bottom: 3rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 3rem;
-        }
-
-        .post-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.85rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .post-hero h1 {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #fff, #94a3b8);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .post-intro {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            border-left: 3px solid var(--accent);
-            padding-left: 1.5rem;
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
         }
 
-        section {
-            margin-bottom: 4rem;
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--bg-accent);
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--bg-accent);
+            width: 0%;
+            box-shadow: 0 0 10px var(--bg-accent);
+        }
+
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .category-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--bg-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: var(--accent-glow);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -0.02em;
+        }
+
+        .post-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.9;
+        }
+
+        main {
+            max-width: var(--container-w);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+
+        article section {
+            background: var(--bg-surface);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: clamp(1.5rem, 5vw, 3.5rem);
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        article section:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
         }
 
         h2 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #fff;
             display: flex;
             align-items: center;
-            color: var(--accent);
         }
 
         h2::before {
-            content: '';
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--accent);
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: var(--bg-accent);
             margin-right: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--bg-accent);
         }
 
         p {
             margin-bottom: 1.5rem;
-            color: var(--text-main);
+            font-size: 1.05rem;
         }
 
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), transparent);
-            border: 1px solid var(--accent);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin: 4rem 0;
+        .info-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--bg-accent);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
         }
 
-        .conclusion-box h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+        .info-box strong {
+            color: var(--bg-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit';
+            text-transform: uppercase;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 2px solid var(--bg-accent) !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--bg-accent);
+            position: relative;
+            z-index: 1;
         }
 
         footer {
-            border-top: 1px solid var(--border);
-            padding: 4rem 0;
+            margin-top: 80px;
+            padding: 100px 0 60px;
+            border-top: 1px solid var(--border-glass);
             text-align: center;
-            color: var(--text-muted);
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--text-dim);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
-            .post-hero h1 {
-                font-size: 2.2rem;
+            header {
+                padding: 0 1rem;
+                width: 95%;
             }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            article section {
+                padding: 1.5rem;
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <header>
-        <div class="container" style="max-width: 1000px;">
-            <div class="nav-wrapper">
-                <a href="../index.html" class="logo">Truth Seeker</a>
-                <nav>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../about.html">About</a></li>
-                        <li><a href="../contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">TRUTH SEEKER</a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main class="container">
+    <div class="hero">
+        <span class="category-tag">File No. 001 • Cognitive Psychology</span>
+        <h1>なぜ陰謀論を信じてしまうのか？<br><span style="color: var(--text-secondary);">脳が真実を「捏造」する驚きのメカニズム</span></h1>
+        <p class="post-intro">
+            高度な情報社会に生きる私たちが、なぜ時に原始的な物語（陰謀論）に魅了され、抜け出せなくなるのでしょうか。認知心理学の視点から、私たちの「脳の脆弱性」と向き合います。
+        </p>
+    </div>
+
+    <main>
         <article>
-            <div class="post-hero">
-                <div class="post-meta">
-                    <span>File No. 010</span>
-                    <span>•</span>
-                    <span>Cognitive Science & Psychology</span>
+            <section class="scroll-reveal">
+                <h2>1. 「意味の探求」という本能</h2>
+                <p>
+                    人間は進化の過程で、無秩序な事象の中に「パターン」を見つけ出す能力を発達させてきました。これは生存確率を高めるための素晴らしい能力ですが、時に暴走します。
+                </p>
+                <p>
+                    あまりに巨大で悲劇的な出来事が起きた際、脳は「単なる偶然」という答えを拒絶します。巨大な原因を求め、そこに「悪意ある誰かの意志」を見出すことで、世界を再び理解可能なものに変えようとするのです。
+                </p>
+            </section>
+
+            <section class="scroll-reveal">
+                <h2>2. 脳の報酬系と「心地よい正義」</h2>
+                <p>
+                    陰謀論を信じることは、脳にとって一種の「報酬」となります。「自分だけが真実を知っている」という特別感は、脳内にドーパミンを放出させ、強い快感（全能感）をもたらします。
+                </p>
+                <div class="info-box">
+                    <strong>VIRAL ANALYSIS</strong>
+                    <p>この全能感は現実世界の無力感を補完する強力な精神的避難所となり、一度依存すると事実に基づいた反証を「敵の攻撃」と見なし、より強く固執するようになります。</p>
                 </div>
-                <h1>人はなぜ陰謀論を信じるのか？心の隙間を埋める「认知の罠」の全貌</h1>
-                <p class="post-intro">
-                    情報の海の中で、私たちは真実ではなく「物語」を選んでしまうことがあります。陰謀論に沈み込むのは、一部の過激な人たちだけではありません。そこには、私たち全員の脳に備わっている、ある種の「生存戦略の誤作動」が隠されています。
-                </p>
-            </div>
-
-            <!-- 1. 都市伝説の概要 -->
-            <section id="overview">
-                <h2>1. 都市伝説の概要</h2>
                 <p>
-                    陰謀論とは、一般的に認知されている事実を否定し、一握りの権力者や組織が秘密裏に邪悪な目的を持って状況を支配していると考える信念体系です。かつてはサブカルチャーの域を出ませんでしたが、現代では政治、健康、環境などあらゆる分野に浸透しています。
-                </p>
-                <p>
-                    「自分たちは騙されている」「真実を知っているのは我々だけだ」という選民意識が、コミュニティの結束を強め、一度その輪の中に入ると、外部からの反証はすべて「敵による隠蔽」と処理されるため、議論が不可能になるという特徴があります。
+                    「目覚めた自分」と「騙されている大衆」という二項対立の物語は、歪んだ形での自尊心を育んでしまうのです。
                 </p>
             </section>
 
-            <!-- 2. なぜ広まったのか -->
-            <section id="viral-reason">
-                <h2>2. なぜ広まったのか</h2>
+            <section class="scroll-reveal">
+                <h2>3. 現代社会における増幅装置</h2>
                 <p>
-                    要因は三つの層に分かれます。一つ目は<strong>個人的・心理的要因</strong>です。自尊心の低下や社会的な疎外感を感じているとき、陰謀論は「秘密の知識を持っている特別な自分」という感覚を与え、損なわれたプライドを回復させます。
+                    SNSのアルゴリズムは、この心理的脆弱性を最大限に利用します。「エコーチェンバー現象」により、自分の考えを肯定する情報（たとえデマであっても）だけが流れてくるようになり、客観的なバランス感覚は急速に失われます。
                 </p>
                 <p>
-                    二つ目は<strong>社会的要因</strong>です。公式な機関（政府、メディア、科学）への不信感が募ると、代替となる「真実」への需要が高まります。三つ目は<strong>技術的要因（アルゴリズム）</strong>です。SNSの「おすすめ」機能が、利用者の関心に近い情報を過剰に供給するエコーチェンバー現象を引き起こし、偏った信念を加速的に強化させています。
-                </p>
-            </section>
-
-            <!-- 3. 科学的・歴史的検証 -->
-            <section id="verification">
-                <h2>3. 科学的・歴史的検証</h2>
-                <p>
-                    心理学的調査によって、陰謀論を信じる脳の特性がいくつか特定されています。
-                </p>
-                <p>
-                    第一に「意図性のバイアス」です。人間は、単なるアクシデントや自然現象にも「誰かの意図」を感じ取るように進化してきました。生存のために「草むらのガサガサ」を「虎がいる意図的な動き」と捉える能力が、現代では「社会変動」の中に「黒幕の意図」を読み取らせるように働いています。
-                </p>
-                <p>
-                    第二に「比例バイアス」です（他の記事でも触れましたが、この心理的基盤は極めて強力です）。「重大な事件には重大な原因がある」という脳の期待を、陰謀論は見事に満たしてくれます。さらに、人は「ランダムなデータ（無秩序）」に強いストレスを感じます。陰謀論は、無慈悲な偶然に満ちた世界を「誰かが計画した物語」としてパッケージ化することで、偽りの安全感を提供します。学歴や知能とは関係なく、誰もが「不安な時」にはこの罠に陥りやすくなることが数々の実験で証明されています。
+                    「多くの人が言っているから」という同調圧力も加わり、真偽よりも「所属するコミュニティへの忠誠心」が重視されるようになります。事実は、感情的なつながりの前では無力化されてしまうのです。
                 </p>
             </section>
 
-            <!-- 4. 残る疑問 -->
-            <section id="remaining-mysteries">
-                <h2>4. 残る疑問</h2>
+            <section class="scroll-reveal">
+                <h2>4. 私たちにできること</h2>
                 <p>
-                    最大の疑問は、「なぜ一度信じると、修正がこれほど困難なのか」という点です。
+                    陰謀論は「愚かな人が信じるもの」ではありません。むしろ高い知識や強い正義感を持つ人ほど、その罠に嵌りやすいという指摘もあります。
                 </p>
                 <p>
-                    これには「確証バイアス」が関わっています。人は自分の信念を裏付ける情報だけを収集し、矛盾する情報は無視または攻撃します。科学教育やファクトチェックだけでは、信念を覆すことはできません。むしろ、反論を受けることでさらに自分の正しさを確信する「バックファイア効果」も懸念されています。論理（ロジック）で対峙するのではなく、その人の「不安の本質」にどう寄り添うべきかというコミュニケーションの課題が、心理学と社会学の最前線として残されています。
+                    大切なのは、自分の信じている情報に対して「これは単に自分が信じたいだけではないか？」という健全な疑いを持つこと。そして、答えを急がず「分からない」という曖昧さに耐えうる精神（ネガティブ・ケイパビリティ）を育てることです。
                 </p>
             </section>
 
-            <!-- 5. 合理的結論 -->
-            <section id="conclusion" class="conclusion-box">
+            <section class="scroll-reveal conclusion">
                 <h3>5. 合理的結論</h3>
                 <p>
-                    陰謀論を信じるのは、知性の欠如ではなく、<strong>「不確実な世界で意味を求め、秩序を保とうとする人間の脳の、あまりに忠実で必死な防衛反応」</strong>です。
+                    陰謀論を信じてしまう心の正体は、<strong>「コントロール不能な世界に対する、生存のための防衛本能の過剰反応」</strong>です。
                 </p>
                 <p>
-                    誰の中にも、その種はあります。大切なのは、自分を「真実の守り手」と過信せず、常に自分の認知の癖（バイアス）を自覚し続ける謙虚さです。陰謀論の対極にあるのは「正論」ではなく、答えが出ない状態に耐える「ネガティブ・ケイパビリティ（持ちこたえる力）」なのです。
+                    私たちは皆、その脆弱性を抱えています。真実の探究とは、外部にある「隠された事実」を暴くことではなく、自分自身の脳が作り出す「バイアス」を克服し続ける、孤独で誠実な戦いなのです。
                 </p>
-                <p style="margin-top: 2rem; font-style: italic; color: var(--accent);">
-                    真実は、誰かが用意した物語の中ではなく、複雑で曖昧な現実そのものの中にあります。
+                <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
+                    最も深い謎は、歴史の影ではなく、私たちの思考のプロセスそのものの中にあります。
                 </p>
             </section>
         </article>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Truth Seeker - Logical Urban Legend Verification Project.</p>
-            <nav style="font-size: 0.85rem; margin-top: 1rem;">
-                <a href="../about.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">当サイトについて</a>
-                <a href="../contact.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">お問い合わせ</a>
-                <a href="../privacy.html"
-                    style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">プライバシーポリシー</a>
-            </nav>
+        <span class="footer-logo">TRUTH SEEKER</span>
+        <div class="footer-nav">
+            <a href="../about.html">About Us</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.
         </div>
     </footer>
+
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+
+            let reveals = document.querySelectorAll(".scroll-reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    reveals[i].classList.add("visible");
+                }
+            }
+        };
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
 
 </html>
