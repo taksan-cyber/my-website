@@ -3,57 +3,342 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Eyed Children：黒い瞳の子供たち | Truth Seeker</title>
     <meta name="description" content="真夜中にドアを叩く、真っ黒な瞳の子供たち。世界中で報告される不気味な遭遇例と、その正体に迫る。">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Noto+Sans+JP&display=swap"
+
+    <!-- OGP / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Black Eyed Children：黒い瞳の子供たち | Truth Seeker">
+    <meta property="og:description" content="真夜中にドアを叩く、真っ黒な瞳の子供たち。その正体に迫る。">
+    <meta property="og:url" content="https://taksan-cyber.github.io/posts/black-eyed-children.html">
+    <meta property="og:image" content="https://taksan-cyber.github.io/assets/posts/black-eyed-children.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap"
         rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5096588905574559"
+        crossorigin="anonymous"></script>
     <style>
-        body {
-            background: #020617;
-            color: #f8fafc;
-            font-family: 'Noto Sans JP';
-            line-height: 1.8;
+        :root {
+            --bg-base: #020617;
+            --bg-surface: rgba(15, 23, 42, 0.7);
+            --bg-accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-dim: #64748b;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --header-blur: 15px;
+            --container-w: 840px;
+        }
+
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.8;
+            background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);
+        }
+
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            height: 60px;
+            background: rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(var(--header-blur));
+            border: 1px solid var(--border-glass);
+            border-radius: 40px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Outfit';
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--bg-accent);
+            width: 0%;
+            box-shadow: 0 0 10px var(--bg-accent);
         }
 
         .hero {
-            padding: 100px 20px;
+            padding-top: 180px;
+            padding-bottom: 80px;
             text-align: center;
-            background: radial-gradient(circle, #1e293b, #020617);
+        }
+
+        .category-tag {
+            font-family: 'Outfit';
+            font-size: 0.75rem;
+            color: var(--bg-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: var(--accent-glow);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans JP';
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 2rem 0;
+        }
+
+        .meter-container {
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .meter-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Outfit';
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .meter-track {
+            height: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
         }
 
         .meter-fill {
-            height: 8px;
-            background: #ef4444;
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, var(--bg-accent));
             width: 25%;
+            box-shadow: 0 0 15px var(--bg-accent);
         }
 
         main {
-            max-width: 800px;
+            max-width: var(--container-w);
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 1.5rem;
         }
 
-        section {
-            background: rgba(15, 23, 42, 0.7);
-            padding: 30px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        article section {
+            background: var(--bg-surface);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-family: 'Outfit';
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: var(--bg-accent);
+            margin-right: 1rem;
+            border-radius: 4px;
+        }
+
+        .article-image {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-glass);
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 4rem 0;
+        }
+
+        .share-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: 'Outfit';
+            font-weight: 700;
+            color: #fff;
+            border: 1px solid var(--border-glass);
+        }
+
+        .x-share {
+            background: #000;
+        }
+
+        .fb-share {
+            background: #1877f2;
+        }
+
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-glass);
+            text-align: center;
+            color: var(--text-dim);
+        }
+
+        .info-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--bg-accent);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+        }
+
+        .info-box strong {
+            color: var(--bg-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit';
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 2px solid var(--bg-accent) !important;
         }
     </style>
 </head>
 
 <body>
-    <div class="hero">
-        <h1>Black Eyed Children<br>黒眼の子供たちの訪問</h1>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
     </div>
+    <header>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">TRUTH SEEKER</a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <span class="category-tag">File No. 015 • Urban Legend</span>
+        <h1>Black Eyed Children<br><span style="color: var(--text-secondary);">黒眼の子供たちの訪問</span></h1>
+        <div class="meter-container">
+            <div class="meter-label"><span>Logical Certainty</span><span>25%</span></div>
+            <div class="meter-track">
+                <div class="meter-fill" style="width: 25%;"></div>
+            </div>
+        </div>
+    </div>
+
     <main>
-        <section>
-            <h2>1. 遭遇のパターン</h2>
-            <p>「家に入れてほしい」と懇願する子供たち。彼らと目を合わせると、白目がない真っ黒な虚無が広がっているという。</p>
-        </section>
+        <article>
+            <section>
+                <h2>1. 都市伝説の概要</h2>
+                <img src="../assets/posts/black-eyed-children.png" alt="Black Eyed Children" class="article-image">
+                <p>夜中に家のドアを叩く音。開けると、そこには二人の子供が立っている。彼らは一見普通の子供のように見えるが、その瞳には白目がなく、すべてが真っ黒な漆黒の闇で満たされている。これが「Black Eyed Children（BEK：黒い瞳の子供たち）」と呼ばれる伝説の典型的な姿です。</p>
+                <p>彼らは「電話を貸してほしい」「家に入れてほしい」と奇妙に落ち着いた、あるいは金属的な声で懇願します。しかし、招き入れてしまった最後、彼らが何をするのか、招き入れられた者がどうなったのかについて語られることは稀です。ただ、強烈な恐怖感と不快感、そして「この世のものではない」という直感が、遭遇者を襲います。</p>
+            </section>
+
+            <section>
+                <h2>2. なぜ広まったのか</h2>
+                <p>この伝説の起源は、1996年にジャーナリストのブライアン・ベセルがネット掲示板に投稿した自身の体験談にあるとされています。テキサス州アビリーンの駐車場で、二人の少年から「映画に行くためのお金を借りたい。家まで送ってほしい」と話しかけられた際、彼らの瞳が真っ黒であることに気づき、恐怖とともに車を走らせたという内容でした。</p>
+                <div class="info-box">
+                    <strong>VIRAL ANALYSIS</strong>
+                    <p>この物語が爆発的に拡散した理由は、インターネット黎明期の掲示板やメーリングリストにおける「Creepypasta（ネット怪談）」の台頭と密接に関係しています。シンプルな視覚的恐怖（真っ黒な目）と、子供という「無垢な存在」に潜む「底知れぬ悪意」というギャップが、人々の原始的な恐怖を刺激しました。</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>3. 科学的・歴史的検証</h2>
+                <p>論理的に見て、BEKの存在を裏付ける物理的な証拠は一切存在しません。監視カメラに映った例や、警察に正式に届けられた確実な記録はなく、そのすべては「個人の体験談」に依存しています。</p>
+                <p>心理学的には、これは「不気味の谷現象」や「社会的恐怖の投影」として説明可能です。また、コンタクトレンズ技術の向上により、「真っ黒な瞳」を演出することが容易になったことも、目撃証言のリアリティを（皮肉にも）高める要因となりました。さらに、ベセルの投稿以前に「黒い瞳の子供」という概念が広く存在していなかった事実は、これが現代の創作物であることを強く示唆しています。</p>
+            </section>
+
+            <section>
+                <h2>4. 残る疑問</h2>
+                <p>しかし、ベセルの投稿以来、世界中で（ベセルの投稿を知らないはずの人々からも）似たような報告が相次いでいる点は無視できません。これは単なる「同調現象」なのか、あるいは、私たちが共有している「深層心理の中の怪物」が具現化した結果なのでしょうか。</p>
+                <p>また、目撃者が共通して訴える「物理的な体調不良」や「電子機器の不調」といった現象は、単なる心理的なパニックで片付けられるものなのか、それとも未知の物理的要因が関与しているのか——。その空白は埋まらないままです。</p>
+            </section>
+
+            <section class="conclusion">
+                <h2>5. 合理的結論</h2>
+                <p>「Black Eyed Children」は、1990年代にインターネットから生まれた**現代の民間伝承（アーバン・レジェンド）**であると結論づけるのが最も妥当です。デジタル時代において、恐怖はウイルスのように拡散し、人々の集合的無意識の中で形を成していきます。</p>
+                <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
+                    彼らはドアの向こう側に実在するのではなく、私たちのインターネットという暗闇の中に潜んでいるのかもしれない。
+                </p>
+            </section>
+        </article>
     </main>
+
+    <footer>
+        <p>&copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.</p>
+    </footer>
+
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+    </script>
 </body>
 
 </html>

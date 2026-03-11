@@ -3,55 +3,326 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>The Hum：世界を覆う謎の低周波音 | Truth Seeker</title>
-    <meta name="description" content="一部の人にしか聞こえない、地鳴りのような重低音「ザ・ハム」。工業ノイズか、それとも地球の「鳴動」か。">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Noto+Sans+JP&display=swap"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hum：世界中で鳴り響く謎の低周波音 | Truth Seeker</title>
+    <meta name="description" content="世界の特定の地域で報告される不気味な重低音「ザ・ハム」。一部の人にしか聞こえないこの音の正体は、軍事実験か、地質学的現象か。">
+
+    <!-- OGP / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Hum：世界中で鳴り響く謎の低周波音 | Truth Seeker">
+    <meta property="og:description" content="世界中で報告される不気味な低周波音「ザ・ハム」。その正体に迫る。">
+    <meta property="og:url" content="https://taksan-cyber.github.io/posts/the-hum.html">
+    <meta property="og:image" content="https://taksan-cyber.github.io/assets/posts/the-hum.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap"
         rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5096588905574559"
+        crossorigin="anonymous"></script>
     <style>
-        body {
-            background: #020617;
-            color: #f8fafc;
-            font-family: 'Noto Sans JP';
-            line-height: 1.8;
+        :root {
+            --bg-base: #020617;
+            --bg-surface: rgba(15, 23, 42, 0.7);
+            --bg-accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-dim: #64748b;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --header-blur: 15px;
+            --container-w: 840px;
+        }
+
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.8;
+            background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);
+        }
+
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            height: 60px;
+            background: rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(var(--header-blur));
+            border: 1px solid var(--border-glass);
+            border-radius: 40px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Outfit';
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--bg-accent);
+            width: 0%;
+            box-shadow: 0 0 10px var(--bg-accent);
         }
 
         .hero {
-            padding: 100px 20px;
+            padding-top: 180px;
+            padding-bottom: 80px;
             text-align: center;
         }
 
-        .meter-fill {
+        .category-tag {
+            font-family: 'Outfit';
+            font-size: 0.75rem;
+            color: var(--bg-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: var(--accent-glow);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans JP';
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 2rem 0;
+        }
+
+        .meter-container {
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .meter-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Outfit';
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .meter-track {
             height: 8px;
-            background: #fbbf24;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, var(--bg-accent));
             width: 55%;
+            box-shadow: 0 0 15px var(--bg-accent);
         }
 
         main {
-            max-width: 800px;
+            max-width: var(--container-w);
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 1.5rem;
         }
 
-        section {
-            background: rgba(15, 23, 42, 0.7);
-            padding: 30px;
-            border-radius: 20px;
-            margin-bottom: 20px;
+        article section {
+            background: var(--bg-surface);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-family: 'Outfit';
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: var(--bg-accent);
+            margin-right: 1rem;
+            border-radius: 4px;
+        }
+
+        .article-image {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-glass);
+        }
+
+        .info-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--bg-accent);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+        }
+
+        .info-box strong {
+            color: var(--bg-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit';
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 2px solid var(--bg-accent) !important;
+        }
+
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-glass);
+            text-align: center;
+            color: var(--text-dim);
         }
     </style>
 </head>
 
 <body>
-    <div class="hero">
-        <h1>The Hum<br>逃げ場のない低周波の正体</h1>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
     </div>
+    <header>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">TRUTH SEEKER</a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <span class="category-tag">File No. 018 • Acoustic Mystery</span>
+        <h1>The Hum<br><span style="color: var(--text-secondary);">世界中で鳴り響く謎の低周波音</span></h1>
+        <div class="meter-container">
+            <div class="meter-label"><span>Logical Certainty</span><span>55%</span></div>
+            <div class="meter-track">
+                <div class="meter-fill" style="width: 55%;"></div>
+            </div>
+        </div>
+    </div>
+
     <main>
-        <section>
-            <h2>1. 現象の報告</h2>
-            <p>タオス・ハムなどが有名ですが、世界各地で「ディーゼルエンジンが遠くで動いているような音」が報告されています。</p>
-        </section>
+        <article>
+            <section>
+                <h2>1. 事象の概要</h2>
+                <img src="../assets/posts/the-hum.png" alt="The Hum Mystery" class="article-image">
+                <p>夜静かな時に、どこからともなく聞こえてくる「ブーン」あるいは「ゴゴゴ」という低い唸るような音。ディーゼルエンジンのアイドリング音に例えられることも多いこの現象は、**「ザ・ハム（The
+                    Hum）」**と呼ばれています。この音の最大の特徴は、全人口の数パーセント、つまり特定の「聞こえる人（ヒアラー）」にしか聞こえないという点にあります。</p>
+                <p>イギリスのブリストルやアメリカのタオス（タオス・ハム）など、世界各地で報告されており、聞こえる人にとっては不眠や頭痛、精神的苦痛を伴う深刻な問題となっています。マイクでの録音が困難なケースが多く、主観的な現象なのか物理的な現象なのか、長年議論の対象となってきました。
+                </p>
+            </section>
+
+            <section>
+                <h2>2. なぜ注目されたのか</h2>
+                <p>この現象が全米規模で注目されたのは1990年代初頭、ニューメキシコ州のタオスで集団的な訴えがあった際でした。地元の住民たちが議会に調査を依頼し、著名な研究所や大学が参加する大規模な科学的調査が行われました。
+                </p>
+                <div class="info-box">
+                    <strong>VIRAL ANALYSIS</strong>
+                    <p>「自分にしか聞こえない謎の音」という不気味さと、周囲に理解されない疎外感が、ネット掲示板やSNSを通じて共有され、巨大なコミュニティを形成しました。「軍の極秘実験」や「地底人の活動」といった陰謀論から、地磁気や気象現象といった科学的仮説まで、多種多様な議論が拡散し続けています。
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>3. 科学的・物理的検証</h2>
+                <p>科学者の多くは、この音の正体を複数の要因の組み合わせと考えています。有力な仮説の一つは、近隣の工場や空調設備、あるいは高圧電線から発生する低周波騒音です。音波は非常に遠くまで届き、屋内に入ると壁や家具で反響（共鳴）して増幅されるため、室内の方が大きく聞こえるというヒアラーの証言とも一致します。
+                </p>
+                <p>また、興味深いことに「生物学的な耳鳴り」の一種とする説もあります。人間の聴覚システムが低周波に対して過敏になり、体内の血流音や筋肉の振動を外部の音と誤認してしまうというものです。しかし、タオス・ハムの調査では、ヒアラーたちが「同じ音」を「同時に」認識しているケースがあり、完全に心理的な要因だけでは説明しきれない側面もあります。
+                </p>
+            </section>
+
+            <section>
+                <h2>4. 残る疑問</h2>
+                <p>説明が困難なのは、音響機器が一切の音を拾っていない場所でも、ヒアラーが「確かに鳴っている」と主張し続けている点です。これは、その音が「空気の振動（音波）」ではなく、**「電磁波」が直接脳や神経に干渉している**可能性を示唆しています（フレイ効果と呼ばれます）。
+                </p>
+                <p>軍用の極低周波通信（VLF）が原因とする説もありますが、特定の地域で集中的に聞こえる理由を完全に解明するには至っていません。なぜ「特定の人」だけが受信機のようにその音を拾ってしまうのか。その遺伝的、あるいは解剖学的な差異は未だ特定されていません。
+                </p>
+            </section>
+
+            <section class="conclusion">
+                <h2>5. 合理的結論</h2>
+                <p>ザ・ハムは、**「都市部の低周波騒音」と「個人の生理的な聴覚過敏」が複雑に絡み合った現象**であると考えられます。自然界や現代社会が発生させる微細な低周波の「ノイズ」を、特定の条件を持った人々がフィルタリングできずに知覚してしまっているというのが、最も妥当な解釈です。
+                </p>
+                <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
+                    静寂の中に潜むその音は、私たちが文明という名の巨大な機械の中に住んでいることを、休みなく告げているのかもしれない。
+                </p>
+            </section>
+        </article>
     </main>
+
+    <footer>
+        <p>&copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.</p>
+    </footer>
+
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+    </script>
 </body>
 
 </html>

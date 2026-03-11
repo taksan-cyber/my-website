@@ -4,137 +4,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polybius：プレイヤーを狂わす伝説のアーケードゲーム | Truth Seeker</title>
-    <meta name="description" content="1981年、オレゴン州に突如現れ、数週間で姿を消した謎のゲーム「Polybius」。プレイヤーに幻覚や健忘症を引き起こしたとされる洗脳実験の噂を検証します。">
+    <title>Polybius：プレイヤーを廃人にする「呪われた」アーケードゲーム | Truth Seeker</title>
+    <meta name="description" content="1980年代のオレゴン州に突如現れた謎のゲーム機「ポリビアス」。政府の洗脳実験か、あるいは幻の都市伝説か。その真相を追う。">
 
-    <!-- OGP -->
+    <!-- OGP / Social Media -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Polybius：プレイヤーを狂わす伝説のアーケードゲーム | Truth Seeker">
-    <meta property="og:description" content="謎のゲーム「Polybius」と洗脳実験の噂を検証。">
+    <meta property="og:title" content="Polybius：プレイヤーを廃人にする「呪われた」アーケードゲーム | Truth Seeker">
+    <meta property="og:description" content="政府の洗脳実験とも噂される謎のゲーム「ポリビアス」。都市伝説の真相。">
     <meta property="og:url" content="https://taksan-cyber.github.io/posts/polybius.html">
-    <meta property="og:image" content="https://taksan-cyber.github.io/assets/og-image.png">
+    <meta property="og:image" content="https://taksan-cyber.github.io/assets/posts/polybius.png">
     <meta name="twitter:card" content="summary_large_image">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap"
         rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5096588905574559"
+        crossorigin="anonymous"></script>
     <style>
         :root {
             --bg-base: #020617;
             --bg-surface: rgba(15, 23, 42, 0.7);
-            --bg-accent: #10b981;
+            --bg-accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
+            --text-dim: #64748b;
             --border-glass: rgba(255, 255, 255, 0.08);
+            --header-blur: 15px;
+            --container-w: 840px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background: var(--bg-base);
+            background-color: var(--bg-base);
             color: var(--text-primary);
             line-height: 1.8;
-            margin: 0;
+            background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);
         }
 
         header {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
             height: 60px;
-            background: rgba(2, 6, 23, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(var(--header-blur));
+            border: 1px solid var(--border-glass);
+            border-radius: 40px;
             z-index: 1000;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid var(--border-glass);
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Outfit';
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--bg-accent);
+            width: 0%;
+            box-shadow: 0 0 10px var(--bg-accent);
         }
 
         .hero {
-            padding: 120px 20px 60px;
+            padding-top: 180px;
+            padding-bottom: 80px;
             text-align: center;
+        }
+
+        .category-tag {
+            font-family: 'Outfit';
+            font-size: 0.75rem;
+            color: var(--bg-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: var(--accent-glow);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        h1 {
+            font-family: 'Outfit', 'Noto Sans JP';
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 2rem 0;
         }
 
         .meter-container {
             max-width: 500px;
-            margin: 20px auto;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
+            margin: 0 auto 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .meter-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Outfit';
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
         }
 
         .meter-track {
             height: 8px;
-            background: #000;
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 4px;
             overflow: hidden;
         }
 
         .meter-fill {
             height: 100%;
-            background: var(--bg-accent);
-            width: 30%;
+            background: linear-gradient(90deg, #3b82f6, var(--bg-accent));
+            width: 15%;
+            box-shadow: 0 0 15px var(--bg-accent);
         }
 
         main {
-            max-width: 800px;
+            max-width: var(--container-w);
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 1.5rem;
         }
 
         article section {
             background: var(--bg-surface);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
             border: 1px solid var(--border-glass);
-        }
-
-        h1 {
-            font-family: 'Outfit';
-            font-size: 2.5rem;
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
         }
 
         h2 {
             font-family: 'Outfit';
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: var(--bg-accent);
+            margin-right: 1rem;
+            border-radius: 4px;
+        }
+
+        .article-image {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-glass);
+        }
+
+        .info-box {
+            background: rgba(0, 0, 0, 0.2);
             border-left: 4px solid var(--bg-accent);
-            padding-left: 15px;
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+        }
+
+        .info-box strong {
+            color: var(--bg-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit';
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 2px solid var(--bg-accent) !important;
         }
 
         footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-glass);
             text-align: center;
-            padding: 40px;
-            color: #64748b;
+            color: var(--text-dim);
         }
     </style>
 </head>
 
 <body>
-    <header><a href="../index.html"
-            style="color:#fff; text-decoration:none; font-family:'Outfit'; font-weight:800;">TRUTH SEEKER</a></header>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <header>
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">TRUTH SEEKER</a>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <div class="hero">
-        <h1>Polybius<br><span style="color:var(--text-secondary);">プレイヤーを狂わす伝説のアーケードゲーム</span></h1>
+        <span class="category-tag">File No. 020 • Urban Legend</span>
+        <h1>Polybius<br><span style="color: var(--text-secondary);">プレイヤーを廃人にする「呪われた」ゲーム</span></h1>
         <div class="meter-container">
-            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:5px;">
-                <span>Authenticity</span><span>30%</span></div>
+            <div class="meter-label"><span>Logical Certainty</span><span>15%</span></div>
             <div class="meter-track">
-                <div class="meter-fill"></div>
+                <div class="meter-fill" style="width: 15%;"></div>
             </div>
         </div>
     </div>
+
     <main>
         <article>
             <section>
-                <h2>1. 目撃証言と「黒服の男たち」</h2>
-                <p>ゲーム機を回収しに来たのはメーカーではなく、政府の「黒服の男たち」だったという噂があります。</p>
+                <h2>1. 都市伝説の概要</h2>
+                <img src="../assets/posts/polybius.png" alt="Polybius Arcade Visual" class="article-image">
+                <p>1981年、アメリカ・オレゴン州ポートランドの数カ所のゲームセンターに、突如として見慣れない筐体が設置されました。タイトルは**「Polybius（ポリビアス）」**。抽象的なグラフィックが高速で展開するシューティングゲームでしたが、これをプレイした若者たちに、激しい頭痛、不眠、悪夢、さらには自殺願望といった異常な症状が相次いだとされています。
+                </p>
+                <p>さらに奇妙なことに、黒服の男たち（Men in
+                    Black）が定期的に筐体のもとを訪れ、ハイスコアではなく「何らかのデータ」を収集していたという目撃証言があります。そして、設置からわずか一ヶ月後、ポリビアスは設置された時と同様、忽然と姿を消しました。現物も、公式な製造記録も一枚も残されていない、まさに「幻」のゲームです。
+                </p>
             </section>
+
             <section>
-                <h2>2. 心理学的側面</h2>
-                <p>1980年代の急速な技術進化に対する恐怖と、ビデオゲーム中毒への社会的不安がこの伝説を生んだ可能性があります。</p>
+                <h2>2. なぜ広まったのか</h2>
+                <p>この伝説がネット上で爆発的に広まったのは、2000年に「coinop.org」というアーケードゲームのデータベースサイトに、このゲームの情報が掲載されたのがきっかけでした。1980年代という「ビデオゲームが未知の恐怖対象だった時代」の空気感と、政府の陰謀論が絶妙にマッチしました。
+                </p>
+                <div class="info-box">
+                    <strong>VIRAL ANALYSIS</strong>
+                    <p>「見た者に精神的影響を与える画像」という設定は、後に『リング』などのJホラーや、ネット怪談『SCP財団』などにも通じる根源的な恐怖です。また、「実物が一台も現存しない」という設定が、逆に人々の「探したい」という欲求を刺激し、偽のROMファイルや再現動画が次々と作られるという二次創作的な盛り上がりを見せました。
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>3. 科学的・歴史的検証</h2>
+                <p>当時のオレゴン州の新聞記事や警察の記録を精査したジャーナリストたちが辿り着いた事実は、意外なものでした。1981年に確かにポートランドのゲームセンターで、「テンプエスト」などの実在するゲームをプレイ中に少年が体調を崩した事件が起きていました。また、同時期に別のゲームセンターで賭博行為の疑いがあり、FBIが筐体からデータを回収（証拠押収）していた事実も判明しました。
+                </p>
+                <p>論理的な推論によれば、これらの「実在する複数の無関係な事件」が、長い年月をかけて人々の記憶の中で統合され、増幅され、究極の陰謀論「ポリビアス」へと昇華された可能性が極めて高いと言えます。製造元とされる「Sinneslöschen（ドイツ語で『感覚消失』の意）」という社名も、あまりに象徴的すぎて創作の域を出ません。
+                </p>
+            </section>
+
+            <section>
+                <h2>4. 残る疑問</h2>
+                <p>しかし、一つの疑問が残ります。もしこれが純粋な創作であれば、なぜこれほどまでに多くの人間が「1981年にあの不気味な筐体を見た」と確信を持って（虚偽記憶にしては詳細すぎるレベルで）語り続けるのでしょうか。
+                </p>
+                <p>また、1980年代は実際に軍が「サブリミナル効果」や「光過敏性発作」を兵器に応用しようとする研究を行っていた時期でもあります。ポリビアスは、そうした公にできない実験の「失敗作」として、民間のゲームセンターに試験的に放たれたプロトタイプだったのではないか——。この疑念を完全に払拭する公的な証明は、どこにも存在しません。
+                </p>
+            </section>
+
+            <section class="conclusion">
+                <h2>5. 合理的結論</h2>
+                <p>ポリビアスは、**「初期ビデオゲームへの不信感」と「政府への疑念」が生んだ、史上最も完成度の高い偽史（フェイク・ヒストリー）**であると結論づけられます。しかし、それが単なる嘘だとしても、これほど多くの人々に影響を与え、語り継がれている時点で、ポリビアスという「現象」は実在していると言えるのかもしれません。
+                </p>
+                <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
+                    本当の恐怖はゲーム画面の中にあるのではなく、私たちが「見た」と信じ込む、その脳の脆弱性にある。
+                </p>
             </section>
         </article>
     </main>
-    <footer>&copy; 2026 TRUTH SEEKER</footer>
+
+    <footer>
+        <p>&copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.</p>
+    </footer>
+
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+    </script>
 </body>
 
 </html>

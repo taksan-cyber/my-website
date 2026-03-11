@@ -1,0 +1,5 @@
+# Exclude private records and conversation logs
+_private_records/
+node_modules/
+.DS_Store
+*.log
