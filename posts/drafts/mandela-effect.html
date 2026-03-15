@@ -27,216 +27,7 @@
         rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5096588905574559"
         crossorigin="anonymous"></script>
-    <style>
-        :root {
-            --bg-base: #020617;
-            --bg-surface: rgba(15, 23, 42, 0.7);
-            --bg-accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.2);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-dim: #64748b;
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --header-blur: 15px;
-            --container-w: 840px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            line-height: 1.8;
-            background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);
-        }
-
-        header {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1000px;
-            height: 60px;
-            background: rgba(2, 6, 23, 0.6);
-            backdrop-filter: blur(var(--header-blur));
-            border: 1px solid var(--border-glass);
-            border-radius: 40px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-family: 'Outfit';
-            font-weight: 800;
-            color: #fff;
-            text-decoration: none;
-            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            z-index: 1001;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--bg-accent);
-            width: 0%;
-            box-shadow: 0 0 10px var(--bg-accent);
-        }
-
-        .hero {
-            padding-top: 180px;
-            padding-bottom: 80px;
-            text-align: center;
-        }
-
-        .category-tag {
-            font-family: 'Outfit';
-            font-size: 0.75rem;
-            color: var(--bg-accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: var(--accent-glow);
-            padding: 0.4rem 1.2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        h1 {
-            font-family: 'Outfit', 'Noto Sans JP';
-            font-size: clamp(2rem, 5vw, 3.8rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 2rem 0;
-        }
-
-        .meter-container {
-            max-width: 500px;
-            margin: 0 auto 3rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            border: 1px solid var(--border-glass);
-        }
-
-        .meter-label {
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Outfit';
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-        }
-
-        .meter-track {
-            height: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .meter-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, var(--bg-accent));
-            width: 45%;
-            box-shadow: 0 0 15px var(--bg-accent);
-        }
-
-        main {
-            max-width: var(--container-w);
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        article section {
-            background: var(--bg-surface);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-family: 'Outfit';
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::before {
-            content: "";
-            width: 4px;
-            height: 24px;
-            background: var(--bg-accent);
-            margin-right: 1rem;
-            border-radius: 4px;
-        }
-
-        .article-image {
-            width: 100%;
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-glass);
-        }
-
-        .info-box {
-            background: rgba(0, 0, 0, 0.2);
-            border-left: 4px solid var(--bg-accent);
-            padding: 1.5rem 2rem;
-            border-radius: 0 12px 12px 0;
-            margin: 2rem 0;
-        }
-
-        .info-box strong {
-            color: var(--bg-accent);
-            display: block;
-            margin-bottom: 0.5rem;
-            font-family: 'Outfit';
-        }
-
-        .conclusion {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
-            border: 2px solid var(--bg-accent) !important;
-        }
-
-        footer {
-            padding: 60px 0;
-            border-top: 1px solid var(--border-glass);
-            text-align: center;
-            color: var(--text-dim);
-        }
-    </style>
+    <style>:root{--bg-base:#020617;--bg-surface:rgba(15, 23, 42, 0.7);--bg-accent:#38bdf8;--accent-glow:rgba(56, 189, 248, 0.2);--text-primary:#f8fafc;--text-secondary:#94a3b8;--text-dim:#64748b;--border-glass:rgba(255, 255, 255, 0.08);--header-blur:15px;--container-w:840px;} *{margin:0;padding:0;box-sizing:border-box;} body{font-family:'Noto Sans JP', sans-serif;background-color:var(--bg-base);color:var(--text-primary);line-height:1.8;background-image:radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);} header{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:90%;max-width:1000px;height:60px;background:rgba(2, 6, 23, 0.6);backdrop-filter:blur(var(--header-blur));border:1px solid var(--border-glass);border-radius:40px;z-index:1000;display:flex;align-items:center;padding:0 2rem;} .logo{font-family:'Outfit';font-weight:800;color:#fff;text-decoration:none;background:linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;} nav ul{display:flex;list-style:none;gap:1.5rem;} nav a{color:var(--text-secondary);text-decoration:none;font-size:0.85rem;font-weight:600;text-transform:uppercase;} .progress-container{position:fixed;top:0;left:0;width:100%;height:3px;z-index:1001;} .progress-bar{height:100%;background:var(--bg-accent);width:0%;box-shadow:0 0 10px var(--bg-accent);} .hero{padding-top:180px;padding-bottom:80px;text-align:center;} .category-tag{font-family:'Outfit';font-size:0.75rem;color:var(--bg-accent);text-transform:uppercase;letter-spacing:3px;background:var(--accent-glow);padding:0.4rem 1.2rem;border-radius:20px;border:1px solid rgba(56, 189, 248, 0.3);} h1{font-family:'Outfit', 'Noto Sans JP';font-size:clamp(2rem, 5vw, 3.8rem);font-weight:800;line-height:1.1;margin:2rem 0;} .meter-container{max-width:500px;margin:0 auto 3rem;padding:1.5rem;background:rgba(255, 255, 255, 0.03);border-radius:20px;border:1px solid var(--border-glass);} .meter-label{display:flex;justify-content:space-between;font-family:'Outfit';font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.8rem;} .meter-track{height:8px;background:rgba(0, 0, 0, 0.3);border-radius:4px;overflow:hidden;} .meter-fill{height:100%;background:linear-gradient(90deg, #3b82f6, var(--bg-accent));width:45%;box-shadow:0 0 15px var(--bg-accent);} main{max-width:var(--container-w);margin:0 auto;padding:0 1.5rem;} article section{background:var(--bg-surface);backdrop-filter:blur(10px);border:1px solid var(--border-glass);border-radius:24px;padding:3rem;margin-bottom:3rem;} h2{font-family:'Outfit';font-size:1.8rem;margin-bottom:2rem;display:flex;align-items:center;} h2::before{content:"";width:4px;height:24px;background:var(--bg-accent);margin-right:1rem;border-radius:4px;} .article-image{width:100%;border-radius:16px;margin-bottom:2rem;border:1px solid var(--border-glass);} .info-box{background:rgba(0, 0, 0, 0.2);border-left:4px solid var(--bg-accent);padding:1.5rem 2rem;border-radius:0 12px 12px 0;margin:2rem 0;} .info-box strong{color:var(--bg-accent);display:block;margin-bottom:0.5rem;font-family:'Outfit';} .conclusion{background:linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);border:2px solid var(--bg-accent) !important;} footer{padding:60px 0;border-top:1px solid var(--border-glass);text-align:center;color:var(--text-dim);}</style>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -293,7 +84,7 @@
         <article>
             <section>
                 <h2>1. 事象の概要</h2>
-                <img src="../assets/posts/mandela-effect.png" alt="Mandela Effect Visual" class="article-image">
+                <img src="../assets/posts/mandela-effect.png" alt="Mandela Effect Visual" class="article-image"loading="lazy">
                 <p>南アフリカの元大統領、ネルソン・マンデラが1980年代に獄中で死亡したという記憶。しかし実際には、彼は2013年まで存命し、大統領も務めていました。このような、実際とは異なる記憶を不特定多数が共有する現象を**「マンデラエフェクト（マンデラ効果）」**と呼びます。
                 </p>
                 <p>ピカチュウの尻尾の先の色、Fruit of the
@@ -312,9 +103,13 @@
 
             <section>
                 <h2>3. 科学的検証：虚偽記憶と脳の仕組み</h2>
-                <p>心理学界では、マンデラエフェクトは**「不完全な記憶の再構成」**として説明されます。人間の記憶は録画データではなく、読み出すたびに再構築される不確かなものです。例えば、ピカチュウの耳の先が黒いことから、脳が「デザインの整合性」を求めて尻尾の先も黒く補完してしまう、といった推論による記憶の改変が起こります。
-                </p>
-                <p>また、集団的な誤認（Collective false memory）は、誤解を招く情報の提示や、他人の証言への同調によって、数千人規模で同じ「偽の記憶」が定着することが実験でも証明されています。</p>
+                <p>心理学界では、マンデラエフェクトは<strong>「不完全な記憶の再構成」</strong>として説明されます。脳は情報を録画するように保存するのではなく、思い出すたびにスキーマ（知識構造）に基づいて再構築します。</p>
+
+                <h3>DRMパラダイム（Deese-Roediger-McDermott paradigm）</h3>
+                <p>心理学における<strong>DRMパラダイム</strong>は、関連する情報の断片から、存在しないはずの「関連性の高い記憶」を脳が自動生成してしまう現象を指します。ピカチュウの耳の先が黒いことから、「尻尾の先も黒いはずだ」という脳の整合性バイアス（補完機能）が働くことがこれに当たります。</p>
+
+                <h3>作為証言と虚構症（Confabulation）</h3>
+                <p><strong>虚構症（コンファブレイション）</strong>とは、脳が欠落した記憶を埋めるために作り出した悪意のない嘘です。特に関心の高い「シンバッドの映画」の記憶は、同時期の別の映画や彼の芸名から連想されるイメージが融合して生まれた究極の虚構記憶と考えられています。社会的同調（他人の証言への同調）が加わることで、この偽の記憶は数千人規模で固定化されるのです。</p>
             </section>
 
             <section>
@@ -325,8 +120,19 @@
                 </p>
             </section>
 
+            <section>
+                <h2>6. 目撃情報の地理的分布</h2>
+                <p>マンデラエフェクトは英語圏で最も多く報告されていますが、日本国内でも独自の事例が存在します。例えば、アニメ『サザエさん』のエンディングでサザエさんが家の中に吸い込まれるような演出があったという記憶や、著名人の訃報に関する時期の食い違いなど、文化的な文脈に沿った「日本版マンデラエフェクト」が確認されています。これは現象が言語や文化の壁を越えた、普遍的な脳の特性に基づいていることを示唆しています。</p>
+
+                <h2>7. 関連する都市伝説との比較</h2>
+                <p>マンデラエフェクトは、ネット上の怪談<strong>「グリッチ・イン・ザ・マトリックス（マトリックスの不具合）」</strong>や、既視感（デジャヴ）としばしば関連付けられます。グリッチが現実に起きる物理的な違和感を指すのに対し、マンデラエフェクトは「過去そのものが書き換わっている」という時間軸への不信感を強調する点が特徴です。これは、SF作品におけるタイムトラベルや世界線移動というモチーフの一般化とも深く結びついています。</p>
+
+                <h2>8. この伝説が示すこと</h2>
+                <p>この現象は、情報の信頼性が揺らぐ現代社会における「記憶の脆弱性」を浮き彫りにしています。Wikipediaの記述が書き換えられ、SNSで偽情報が拡散するデジタル時代において、私たちの記憶は「何が真実か」ではなく「周囲が何を真実としているか」に強く依存しています。マンデラエフェクトは、孤立した個人の記憶が、集合的な相互作用によって容易に再定義されてしまうという、現代の認識論的危機を物語っているのです。</p>
+            </section>
+
             <section class="conclusion">
-                <h2>5. 合理的結論</h2>
+                <h2>9. 合理的結論</h2>
                 <p>マンデラエフェクトは、**「人間の脳が持つ高度な補完機能」と「情報の爆発的な連鎖」が作り出した現代の心理学的奇跡**であると結論づけるのが最も妥当です。しかし、私たちが「現実」と呼んでいるものの正体が、観測者の意識や量子的な揺らぎに基づいているのであれば、完全に「単なる間違い」と切り捨てることもまた、早計かもしれません。
                 </p>
                 <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
@@ -340,14 +146,7 @@
         <p>&copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.</p>
     </footer>
 
-    <script>
-        window.onscroll = function () {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-        };
-    </script>
+    <script>window.onscroll = function () { let winScroll = document.body.scrollTop || document.documentElement.scrollTop; let height = document.documentElement.scrollHeight - document.documentElement.clientHeight; let scrolled = (winScroll / height) * 100; document.getElementById("progressBar").style.width = scrolled + "%"; };</script>
 </body>
 
 </html>

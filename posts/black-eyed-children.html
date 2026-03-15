@@ -27,241 +27,7 @@
         rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5096588905574559"
         crossorigin="anonymous"></script>
-    <style>
-        :root {
-            --bg-base: #020617;
-            --bg-surface: rgba(15, 23, 42, 0.7);
-            --bg-accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.2);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-dim: #64748b;
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --header-blur: 15px;
-            --container-w: 840px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            line-height: 1.8;
-            background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);
-        }
-
-        header {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1000px;
-            height: 60px;
-            background: rgba(2, 6, 23, 0.6);
-            backdrop-filter: blur(var(--header-blur));
-            border: 1px solid var(--border-glass);
-            border-radius: 40px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-family: 'Outfit';
-            font-weight: 800;
-            color: #fff;
-            text-decoration: none;
-            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            z-index: 1001;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--bg-accent);
-            width: 0%;
-            box-shadow: 0 0 10px var(--bg-accent);
-        }
-
-        .hero {
-            padding-top: 180px;
-            padding-bottom: 80px;
-            text-align: center;
-        }
-
-        .category-tag {
-            font-family: 'Outfit';
-            font-size: 0.75rem;
-            color: var(--bg-accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: var(--accent-glow);
-            padding: 0.4rem 1.2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        h1 {
-            font-family: 'Outfit', 'Noto Sans JP';
-            font-size: clamp(2rem, 5vw, 3.8rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 2rem 0;
-        }
-
-        .meter-container {
-            max-width: 500px;
-            margin: 0 auto 3rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            border: 1px solid var(--border-glass);
-        }
-
-        .meter-label {
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Outfit';
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-        }
-
-        .meter-track {
-            height: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .meter-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, var(--bg-accent));
-            width: 25%;
-            box-shadow: 0 0 15px var(--bg-accent);
-        }
-
-        main {
-            max-width: var(--container-w);
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        article section {
-            background: var(--bg-surface);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-family: 'Outfit';
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::before {
-            content: "";
-            width: 4px;
-            height: 24px;
-            background: var(--bg-accent);
-            margin-right: 1rem;
-            border-radius: 4px;
-        }
-
-        .article-image {
-            width: 100%;
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-glass);
-        }
-
-        .share-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 4rem 0;
-        }
-
-        .share-btn {
-            padding: 0.8rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-family: 'Outfit';
-            font-weight: 700;
-            color: #fff;
-            border: 1px solid var(--border-glass);
-        }
-
-        .x-share {
-            background: #000;
-        }
-
-        .fb-share {
-            background: #1877f2;
-        }
-
-        footer {
-            padding: 60px 0;
-            border-top: 1px solid var(--border-glass);
-            text-align: center;
-            color: var(--text-dim);
-        }
-
-        .info-box {
-            background: rgba(0, 0, 0, 0.2);
-            border-left: 4px solid var(--bg-accent);
-            padding: 1.5rem 2rem;
-            border-radius: 0 12px 12px 0;
-            margin: 2rem 0;
-        }
-
-        .info-box strong {
-            color: var(--bg-accent);
-            display: block;
-            margin-bottom: 0.5rem;
-            font-family: 'Outfit';
-        }
-
-        .conclusion {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
-            border: 2px solid var(--bg-accent) !important;
-        }
-    </style>
+    <style>:root{--bg-base:#020617;--bg-surface:rgba(15, 23, 42, 0.7);--bg-accent:#38bdf8;--accent-glow:rgba(56, 189, 248, 0.2);--text-primary:#f8fafc;--text-secondary:#94a3b8;--text-dim:#64748b;--border-glass:rgba(255, 255, 255, 0.08);--header-blur:15px;--container-w:840px;} *{margin:0;padding:0;box-sizing:border-box;} body{font-family:'Noto Sans JP', sans-serif;background-color:var(--bg-base);color:var(--text-primary);line-height:1.8;background-image:radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);} header{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:90%;max-width:1000px;height:60px;background:rgba(2, 6, 23, 0.6);backdrop-filter:blur(var(--header-blur));border:1px solid var(--border-glass);border-radius:40px;z-index:1000;display:flex;align-items:center;padding:0 2rem;} .logo{font-family:'Outfit';font-weight:800;color:#fff;text-decoration:none;background:linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;} nav ul{display:flex;list-style:none;gap:1.5rem;} nav a{color:var(--text-secondary);text-decoration:none;font-size:0.85rem;font-weight:600;text-transform:uppercase;} .progress-container{position:fixed;top:0;left:0;width:100%;height:3px;z-index:1001;} .progress-bar{height:100%;background:var(--bg-accent);width:0%;box-shadow:0 0 10px var(--bg-accent);} .hero{padding-top:180px;padding-bottom:80px;text-align:center;} .category-tag{font-family:'Outfit';font-size:0.75rem;color:var(--bg-accent);text-transform:uppercase;letter-spacing:3px;background:var(--accent-glow);padding:0.4rem 1.2rem;border-radius:20px;border:1px solid rgba(56, 189, 248, 0.3);} h1{font-family:'Outfit', 'Noto Sans JP';font-size:clamp(2rem, 5vw, 3.8rem);font-weight:800;line-height:1.1;margin:2rem 0;} .meter-container{max-width:500px;margin:0 auto 3rem;padding:1.5rem;background:rgba(255, 255, 255, 0.03);border-radius:20px;border:1px solid var(--border-glass);} .meter-label{display:flex;justify-content:space-between;font-family:'Outfit';font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.8rem;} .meter-track{height:8px;background:rgba(0, 0, 0, 0.3);border-radius:4px;overflow:hidden;} .meter-fill{height:100%;background:linear-gradient(90deg, #3b82f6, var(--bg-accent));width:25%;box-shadow:0 0 15px var(--bg-accent);} main{max-width:var(--container-w);margin:0 auto;padding:0 1.5rem;} article section{background:var(--bg-surface);backdrop-filter:blur(10px);border:1px solid var(--border-glass);border-radius:24px;padding:3rem;margin-bottom:3rem;} h2{font-family:'Outfit';font-size:1.8rem;margin-bottom:2rem;display:flex;align-items:center;} h2::before{content:"";width:4px;height:24px;background:var(--bg-accent);margin-right:1rem;border-radius:4px;} .article-image{width:100%;border-radius:16px;margin-bottom:2rem;border:1px solid var(--border-glass);} .share-buttons{display:flex;justify-content:center;gap:1rem;margin:4rem 0;} .share-btn{padding:0.8rem 2rem;border-radius:12px;text-decoration:none;font-family:'Outfit';font-weight:700;color:#fff;border:1px solid var(--border-glass);} .x-share{background:#000;} .fb-share{background:#1877f2;} footer{padding:60px 0;border-top:1px solid var(--border-glass);text-align:center;color:var(--text-dim);} .info-box{background:rgba(0, 0, 0, 0.2);border-left:4px solid var(--bg-accent);padding:1.5rem 2rem;border-radius:0 12px 12px 0;margin:2rem 0;} .info-box strong{color:var(--bg-accent);display:block;margin-bottom:0.5rem;font-family:'Outfit';} .conclusion{background:linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);border:2px solid var(--bg-accent) !important;}</style>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -318,7 +84,7 @@
         <article>
             <section>
                 <h2>1. 都市伝説の概要</h2>
-                <img src="../assets/posts/black-eyed-children.png" alt="Black Eyed Children" class="article-image">
+                <img src="../assets/posts/black-eyed-children.png" alt="Black Eyed Children" class="article-image"loading="lazy">
                 <p>夜中に家のドアを叩く音。開けると、そこには二人の子供が立っている。彼らは一見普通の子供のように見えるが、その瞳には白目がなく、すべてが真っ黒な漆黒の闇で満たされている。これが「Black Eyed Children（BEK：黒い瞳の子供たち）」と呼ばれる伝説の典型的な姿です。</p>
                 <p>彼らは「電話を貸してほしい」「家に入れてほしい」と奇妙に落ち着いた、あるいは金属的な声で懇願します。しかし、招き入れてしまった最後、彼らが何をするのか、招き入れられた者がどうなったのかについて語られることは稀です。ただ、強烈な恐怖感と不快感、そして「この世のものではない」という直感が、遭遇者を襲います。</p>
             </section>
@@ -334,8 +100,23 @@
 
             <section>
                 <h2>3. 科学的・歴史的検証</h2>
-                <p>論理的に見て、BEKの存在を裏付ける物理的な証拠は一切存在しません。監視カメラに映った例や、警察に正式に届けられた確実な記録はなく、そのすべては「個人の体験談」に依存しています。</p>
-                <p>心理学的には、これは「不気味の谷現象」や「社会的恐怖の投影」として説明可能です。また、コンタクトレンズ技術の向上により、「真っ黒な瞳」を演出することが容易になったことも、目撃証言のリアリティを（皮肉にも）高める要因となりました。さらに、ベセルの投稿以前に「黒い瞳の子供」という概念が広く存在していなかった事実は、これが現代の創作物であることを強く示唆しています。</p>
+                <p>論理的に見て、BEKの存在を裏付ける物理的な証拠は一切存在しません。監視カメラに映った例や、警察に正式に届けられた確実な記録はなく、そのすべては「個人の体験談」に依存しています。ここでは、この現象を多角的に検証します。</p>
+
+                <h3>心理学的アプローチ：不気味の谷とパレイドリア</h3>
+                <p>BEKが与える強烈な不快感は、心理学における<strong>「不気味の谷現象」</strong>で説明可能です。人間は、自分たちに酷似しているが「どこかが決定的に異質なもの」に対して、本能的な拒絶反応を示します。「子供」という保護対象が「真っ黒な瞳」という異質な記号を持つことで、脳はこの認知的不協和を「生命の危機」と誤認し、恐怖を増幅させます。</p>
+                <p>また、暗闇の中でわずかな影を「真っ黒な瞳」と誤認する<strong>パレイドリア（類像現象）</strong>も関与していると考えられます。恐怖を感じている状態では、脳は生存確率を高めるために「最悪のシナリオ」を優先的に視覚化する傾向があります。</p>
+
+                <h3>技術的背景：コンタクトレンズの進化</h3>
+                <p>BEKの目撃証言のリアリティを高めている要因の一つに、特殊メイク技術の一般化があります。以下のタイムラインを照らし合わせると、興味深い事実が浮かび上がります。</p>
+                <ul style="color: var(--text-muted); margin-left: 1.5rem; margin-bottom: 2rem;">
+                    <li><strong>1990年代前半</strong>：ハリウッド映画用に「スネークアイ」などの特殊コンタクトが登場。</li>
+                    <li><strong>1996年</strong>：ブライアン・ベセルによる最初のBEK投稿。</li>
+                    <li><strong>2000年代以降</strong>：スクレラ・レンズ（白目まで覆う大きなレンズ）が安価に市販され、一般人でも入手可能になる。</li>
+                </ul>
+                <p>つまり、最初の報告があった時期は、ちょうど「真っ黒な瞳」を人工的に作ることが技術的に可能になり始めたタイミングと一致しています。</p>
+
+                <h3>比較分析：スレンダーマンとの共通点</h3>
+                <p>BEKは、同じくインターネット発の都市伝説である「スレンダーマン」と比較すると、その特性が鮮明になります。スレンダーマンが明確なイメージ（背が高く顔がない）から始まったのに対し、BEKは「音」や「声」といった聴覚的恐怖、そして「招き入れるか否か」という**倫理的・心理的葛藤**に焦点を当てている点が特徴です。これは、古くからある「吸血鬼」や「悪魔」が家に入るために許可を求めるという伝承の現代版アップデートと言えるでしょう。</p>
             </section>
 
             <section>
@@ -344,8 +125,19 @@
                 <p>また、目撃者が共通して訴える「物理的な体調不良」や「電子機器の不調」といった現象は、単なる心理的なパニックで片付けられるものなのか、それとも未知の物理的要因が関与しているのか——。その空白は埋まらないままです。</p>
             </section>
 
+            <section>
+                <h2>6. 目撃情報の地理的分布</h2>
+                <p>BEKの報告は主にアメリカ合衆国とイギリスに集中していますが、その「現れ方」には地域的な特徴が見られます。アメリカでは郊外の住宅地で「車に乗せてほしい」という訴えが多いのに対し、イギリスでは森や公園といった自然に近い場所での目撃例が目立ちます。この分布の偏りは、それぞれの国が抱える「夜の治安」や「見知らぬ他者への警戒心」といった社会背景を反映していると考えられます。</p>
+
+                <h2>7. 関連する都市伝説との比較</h2>
+                <p>BEKは、同じくインターネット発の都市伝説である<strong>「スレンダーマン」</strong>や、日本の<strong>「貞子（怨霊）」</strong>と比較すると非常に興味深いです。スレンダーマンが視覚的な異質さを強調するのに対し、BEKは「対話」を必要とし、被害者の「意志」を試すという点で、より古典的な悪魔学に近い構造を持っています。また、無表情な子供というアイコンは、東洋の幽霊譚に見られる「無垢の反転」というテーマとも深く共鳴しています。</p>
+
+                <h2>8. この伝説が示すこと</h2>
+                <p>BEKの流行は、デジタル時代の民間伝承が「どのように進化するか」を明確に示しています。匿名掲示板という情報の闇から生まれたこの物語は、シェアされ、改変される過程で、現代人が抱える「家庭の不法侵入への恐怖」や「純粋な子供という存在への潜在的な不信感」を巧みに記号化しました。BEKは単なる怪談ではなく、情報が等価に拡散する現代社会の心理的歪みを映し出す鏡なのです。</p>
+            </section>
+
             <section class="conclusion">
-                <h2>5. 合理的結論</h2>
+                <h2>9. 合理的結論</h2>
                 <p>「Black Eyed Children」は、1990年代にインターネットから生まれた**現代の民間伝承（アーバン・レジェンド）**であると結論づけるのが最も妥当です。デジタル時代において、恐怖はウイルスのように拡散し、人々の集合的無意識の中で形を成していきます。</p>
                 <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
                     彼らはドアの向こう側に実在するのではなく、私たちのインターネットという暗闇の中に潜んでいるのかもしれない。
@@ -358,14 +150,7 @@
         <p>&copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.</p>
     </footer>
 
-    <script>
-        window.onscroll = function () {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-        };
-    </script>
+    <script>window.onscroll = function () { let winScroll = document.body.scrollTop || document.documentElement.scrollTop; let height = document.documentElement.scrollHeight - document.documentElement.clientHeight; let scrolled = (winScroll / height) * 100; document.getElementById("progressBar").style.width = scrolled + "%"; };</script>
 </body>
 
 </html>

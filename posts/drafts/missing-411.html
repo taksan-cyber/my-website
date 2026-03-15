@@ -27,216 +27,7 @@
         rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5096588905574559"
         crossorigin="anonymous"></script>
-    <style>
-        :root {
-            --bg-base: #020617;
-            --bg-surface: rgba(15, 23, 42, 0.7);
-            --bg-accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.2);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-dim: #64748b;
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --header-blur: 15px;
-            --container-w: 840px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            line-height: 1.8;
-            background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);
-        }
-
-        header {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1000px;
-            height: 60px;
-            background: rgba(2, 6, 23, 0.6);
-            backdrop-filter: blur(var(--header-blur));
-            border: 1px solid var(--border-glass);
-            border-radius: 40px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-family: 'Outfit';
-            font-weight: 800;
-            color: #fff;
-            text-decoration: none;
-            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            z-index: 1001;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--bg-accent);
-            width: 0%;
-            box-shadow: 0 0 10px var(--bg-accent);
-        }
-
-        .hero {
-            padding-top: 180px;
-            padding-bottom: 80px;
-            text-align: center;
-        }
-
-        .category-tag {
-            font-family: 'Outfit';
-            font-size: 0.75rem;
-            color: var(--bg-accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: var(--accent-glow);
-            padding: 0.4rem 1.2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        h1 {
-            font-family: 'Outfit', 'Noto Sans JP';
-            font-size: clamp(2rem, 5vw, 3.8rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 2rem 0;
-        }
-
-        .meter-container {
-            max-width: 500px;
-            margin: 0 auto 3rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            border: 1px solid var(--border-glass);
-        }
-
-        .meter-label {
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Outfit';
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-        }
-
-        .meter-track {
-            height: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .meter-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, var(--bg-accent));
-            width: 35%;
-            box-shadow: 0 0 15px var(--bg-accent);
-        }
-
-        main {
-            max-width: var(--container-w);
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        article section {
-            background: var(--bg-surface);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-family: 'Outfit';
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::before {
-            content: "";
-            width: 4px;
-            height: 24px;
-            background: var(--bg-accent);
-            margin-right: 1rem;
-            border-radius: 4px;
-        }
-
-        .article-image {
-            width: 100%;
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-glass);
-        }
-
-        .info-box {
-            background: rgba(0, 0, 0, 0.2);
-            border-left: 4px solid var(--bg-accent);
-            padding: 1.5rem 2rem;
-            border-radius: 0 12px 12px 0;
-            margin: 2rem 0;
-        }
-
-        .info-box strong {
-            color: var(--bg-accent);
-            display: block;
-            margin-bottom: 0.5rem;
-            font-family: 'Outfit';
-        }
-
-        .conclusion {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
-            border: 2px solid var(--bg-accent) !important;
-        }
-
-        footer {
-            padding: 60px 0;
-            border-top: 1px solid var(--border-glass);
-            text-align: center;
-            color: var(--text-dim);
-        }
-    </style>
+    <style>:root{--bg-base:#020617;--bg-surface:rgba(15, 23, 42, 0.7);--bg-accent:#38bdf8;--accent-glow:rgba(56, 189, 248, 0.2);--text-primary:#f8fafc;--text-secondary:#94a3b8;--text-dim:#64748b;--border-glass:rgba(255, 255, 255, 0.08);--header-blur:15px;--container-w:840px;} *{margin:0;padding:0;box-sizing:border-box;} body{font-family:'Noto Sans JP', sans-serif;background-color:var(--bg-base);color:var(--text-primary);line-height:1.8;background-image:radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);} header{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:90%;max-width:1000px;height:60px;background:rgba(2, 6, 23, 0.6);backdrop-filter:blur(var(--header-blur));border:1px solid var(--border-glass);border-radius:40px;z-index:1000;display:flex;align-items:center;padding:0 2rem;} .logo{font-family:'Outfit';font-weight:800;color:#fff;text-decoration:none;background:linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;} nav ul{display:flex;list-style:none;gap:1.5rem;} nav a{color:var(--text-secondary);text-decoration:none;font-size:0.85rem;font-weight:600;text-transform:uppercase;} .progress-container{position:fixed;top:0;left:0;width:100%;height:3px;z-index:1001;} .progress-bar{height:100%;background:var(--bg-accent);width:0%;box-shadow:0 0 10px var(--bg-accent);} .hero{padding-top:180px;padding-bottom:80px;text-align:center;} .category-tag{font-family:'Outfit';font-size:0.75rem;color:var(--bg-accent);text-transform:uppercase;letter-spacing:3px;background:var(--accent-glow);padding:0.4rem 1.2rem;border-radius:20px;border:1px solid rgba(56, 189, 248, 0.3);} h1{font-family:'Outfit', 'Noto Sans JP';font-size:clamp(2rem, 5vw, 3.8rem);font-weight:800;line-height:1.1;margin:2rem 0;} .meter-container{max-width:500px;margin:0 auto 3rem;padding:1.5rem;background:rgba(255, 255, 255, 0.03);border-radius:20px;border:1px solid var(--border-glass);} .meter-label{display:flex;justify-content:space-between;font-family:'Outfit';font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.8rem;} .meter-track{height:8px;background:rgba(0, 0, 0, 0.3);border-radius:4px;overflow:hidden;} .meter-fill{height:100%;background:linear-gradient(90deg, #3b82f6, var(--bg-accent));width:35%;box-shadow:0 0 15px var(--bg-accent);} main{max-width:var(--container-w);margin:0 auto;padding:0 1.5rem;} article section{background:var(--bg-surface);backdrop-filter:blur(10px);border:1px solid var(--border-glass);border-radius:24px;padding:3rem;margin-bottom:3rem;} h2{font-family:'Outfit';font-size:1.8rem;margin-bottom:2rem;display:flex;align-items:center;} h2::before{content:"";width:4px;height:24px;background:var(--bg-accent);margin-right:1rem;border-radius:4px;} .article-image{width:100%;border-radius:16px;margin-bottom:2rem;border:1px solid var(--border-glass);} .info-box{background:rgba(0, 0, 0, 0.2);border-left:4px solid var(--bg-accent);padding:1.5rem 2rem;border-radius:0 12px 12px 0;margin:2rem 0;} .info-box strong{color:var(--bg-accent);display:block;margin-bottom:0.5rem;font-family:'Outfit';} .conclusion{background:linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);border:2px solid var(--bg-accent) !important;} footer{padding:60px 0;border-top:1px solid var(--border-glass);text-align:center;color:var(--text-dim);}</style>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -293,7 +84,7 @@
         <article>
             <section>
                 <h2>1. 事象の概要</h2>
-                <img src="../assets/posts/missing-411.png" alt="Missing 411 Wilderness" class="article-image">
+                <img src="../assets/posts/missing-411.png" alt="Missing 411 Wilderness" class="article-image"loading="lazy">
                 <p>雄大な自然が広がる北米の国立公園。そこで年間数千人が行方不明になります。その多くは道迷いや事故として処理されますが、元警察官のデイビッド・ポーリデスが提唱する**「Missing
                     411」**は、それらの中でも「既存の知識では説明がつかない」奇妙な共通点を持つ失踪事件群を指します。</p>
                 <p>失踪者は、熟練したハイカーからわずか数歳の子供まで多岐にわたります。しかし、彼らが消えた状況、そして（発見された場合の）遺体の状態には、背筋を凍らせるようなパターンが存在します。靴だけが見つからない、あるいは、人間が短時間で移動不可能なほどの遠方、あるいは崖の上で遺体が発見されるといった不可解な事象が繰り返されているのです。
@@ -313,9 +104,12 @@
 
             <section>
                 <h2>3. 科学的・地理的検証</h2>
-                <p>論理的な視点で見れば、広大な原生林での失踪は、急激な天候の変化や、野生動物（クマやマウンテンライオン）による襲撃、あるいは「逆説的脱衣（低体温症で身体が熱く感じ、服を脱いでしまう現象）」で説明できるものが多く含まれています。
-                </p>
-                <p>実際、ポーリデスが指摘する「共通点」の中には、統計学的に見て「失踪事件には付き物の要素」を恣意的に抽出しているという批判もあります。しかし、ベリー摘みをしている最中や、数歩先を歩いていた子供が、声を上げる暇もなく瞬時に消え去り、数日後に数マイル離れた、捜索隊が何度も通った場所で発見されるという事例は、依然として説明が非常に困難です。
+                <p>一部の不可解な共通点については、科学的な視点からいくつかの可能性が示唆されています。遭難者が低体温症（ハイポサーミア）に陥った際の<strong>「矛盾脱衣（Paradoxical undressing）」</strong>や、狭い場所に潜り込もうとする**「終末期潜行行為（Terminal burrowing behavior）」**は、遺体が不自然な状態で発見される多くのケースを論理的に説明可能です。</p>
+
+                <h3>GIS（地理情報システム）によるクラスター分析</h3>
+                <p>ミッシング411で指摘される「失踪地点のクラスター」を<strong>GIS（地理情報システム）</strong>で分析すると、その多くが複雑な洞窟網や険しい山岳地形、あるいは急な増水が発生しやすい水系と重なります。これは超常的な理由ではなく、単純に遭難リスクが極めて高いエリアであることを示しています。数千件という膨大なデータの中では、統計確率的に「奇妙な偶然」が重なるケースが一定数発生することは統計学の常道です。</p>
+
+                <p>しかし、国立公園局（NPS）が失踪者の詳細なリストを公開していない、あるいは作成していないという事実は、陰謀論を加速させる要因となっています。情報の不透明さが、科学的な検証を困難にしている側面は否定できません。
                 </p>
             </section>
 
@@ -326,8 +120,19 @@
                 <p>NPSがなぜ、特定の失踪事件について情報の提供を頑なに拒み、巨額の開示費用を請求するのか。その「不透明な対応」そのものが、この問題を単なる事故以上のものへと押し上げています。</p>
             </section>
 
+            <section>
+                <h2>6. 目撃情報の地理的分布</h2>
+                <p>ミッシング411の失踪事件は、イエローストーン、ヨセミテ、カナダのバンフなど、北米の巨大な国立公園の「クラスター（多発地帯）」に集中しています。しかし、近年ではイギリスの「ピークディストリクト」や日本の一部山岳地帯でも同様のパターン（急斜面での発見、水辺の失踪）が報告されています。このグローバルな分布は、 wilderness（荒野）という環境が持つ共通の危険因子を示唆しています。</p>
+
+                <h2>7. 関連する都市伝説との比較</h2>
+                <p>ミッシング411は、不可解な遺体の発見状況から<strong>「モスマン（予兆）」</strong>や<strong>「ビッグフット/ウェンディゴ」</strong>といった北米の先住民伝承としばしば結び付けられます。超常現象的な視点では、これらは「自然界の物理法則が一時的に通じない場所」での事件として共通のカテゴリーに分類されますが、ミッシング411は徹底した統計データに基づいているという点で「現代的な捜査ドキュメンタリー」としての側面を強く持っています。</p>
+
+                <h2>8. この伝説が示すこと</h2>
+                <p>このプロジェクトの広まりは、管理された現代社会において、私たちが「制御不能な大自然」に対して抱く根源的な恐怖（フォビア）を再燃させました。GPSや携帯電話が通じない「空白地帯」への不安、そして公的機関（NPS）が何かを隠しているという権力不信。ミッシング411は、文明の光が届かない場所に、今も「説明できない恐怖」が残されていることを私たちに告げているのです。</p>
+            </section>
+
             <section class="conclusion">
-                <h2>5. 合理的結論</h2>
+                <h2>9. 合理的結論</h2>
                 <p>Missing
                     411は、**「自然の残酷な偶然」と「公的機関の情報管理の不備」、そして「人間のパターン認識能力」が融合して生まれた巨大な謎**です。その多くは悲劇的な事故でしょうが、中には現在の科学が捉えきれていない「何か」——未確認の野生生物、あるいは地理的な未知の現象——が介在している可能性を、完全には否定できません。
                 </p>
@@ -342,14 +147,7 @@
         <p>&copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.</p>
     </footer>
 
-    <script>
-        window.onscroll = function () {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-        };
-    </script>
+    <script>window.onscroll = function () { let winScroll = document.body.scrollTop || document.documentElement.scrollTop; let height = document.documentElement.scrollHeight - document.documentElement.clientHeight; let scrolled = (winScroll / height) * 100; document.getElementById("progressBar").style.width = scrolled + "%"; };</script>
 </body>
 
 </html>

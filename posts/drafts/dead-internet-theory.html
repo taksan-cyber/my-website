@@ -27,216 +27,7 @@
         rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5096588905574559"
         crossorigin="anonymous"></script>
-    <style>
-        :root {
-            --bg-base: #020617;
-            --bg-surface: rgba(15, 23, 42, 0.7);
-            --bg-accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.2);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-dim: #64748b;
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --header-blur: 15px;
-            --container-w: 840px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            line-height: 1.8;
-            background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);
-        }
-
-        header {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1000px;
-            height: 60px;
-            background: rgba(2, 6, 23, 0.6);
-            backdrop-filter: blur(var(--header-blur));
-            border: 1px solid var(--border-glass);
-            border-radius: 40px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-family: 'Outfit';
-            font-weight: 800;
-            color: #fff;
-            text-decoration: none;
-            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            z-index: 1001;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--bg-accent);
-            width: 0%;
-            box-shadow: 0 0 10px var(--bg-accent);
-        }
-
-        .hero {
-            padding-top: 180px;
-            padding-bottom: 80px;
-            text-align: center;
-        }
-
-        .category-tag {
-            font-family: 'Outfit';
-            font-size: 0.75rem;
-            color: var(--bg-accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: var(--accent-glow);
-            padding: 0.4rem 1.2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        h1 {
-            font-family: 'Outfit', 'Noto Sans JP';
-            font-size: clamp(2rem, 5vw, 3.8rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 2rem 0;
-        }
-
-        .meter-container {
-            max-width: 500px;
-            margin: 0 auto 3rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            border: 1px solid var(--border-glass);
-        }
-
-        .meter-label {
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Outfit';
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-        }
-
-        .meter-track {
-            height: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .meter-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, var(--bg-accent));
-            width: 65%;
-            box-shadow: 0 0 15px var(--bg-accent);
-        }
-
-        main {
-            max-width: var(--container-w);
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        article section {
-            background: var(--bg-surface);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-family: 'Outfit';
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::before {
-            content: "";
-            width: 4px;
-            height: 24px;
-            background: var(--bg-accent);
-            margin-right: 1rem;
-            border-radius: 4px;
-        }
-
-        .article-image {
-            width: 100%;
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-glass);
-        }
-
-        .info-box {
-            background: rgba(0, 0, 0, 0.2);
-            border-left: 4px solid var(--bg-accent);
-            padding: 1.5rem 2rem;
-            border-radius: 0 12px 12px 0;
-            margin: 2rem 0;
-        }
-
-        .info-box strong {
-            color: var(--bg-accent);
-            display: block;
-            margin-bottom: 0.5rem;
-            font-family: 'Outfit';
-        }
-
-        .conclusion {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
-            border: 2px solid var(--bg-accent) !important;
-        }
-
-        footer {
-            padding: 60px 0;
-            border-top: 1px solid var(--border-glass);
-            text-align: center;
-            color: var(--text-dim);
-        }
-    </style>
+    <style>:root{--bg-base:#020617;--bg-surface:rgba(15, 23, 42, 0.7);--bg-accent:#38bdf8;--accent-glow:rgba(56, 189, 248, 0.2);--text-primary:#f8fafc;--text-secondary:#94a3b8;--text-dim:#64748b;--border-glass:rgba(255, 255, 255, 0.08);--header-blur:15px;--container-w:840px;} *{margin:0;padding:0;box-sizing:border-box;} body{font-family:'Noto Sans JP', sans-serif;background-color:var(--bg-base);color:var(--text-primary);line-height:1.8;background-image:radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);} header{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:90%;max-width:1000px;height:60px;background:rgba(2, 6, 23, 0.6);backdrop-filter:blur(var(--header-blur));border:1px solid var(--border-glass);border-radius:40px;z-index:1000;display:flex;align-items:center;padding:0 2rem;} .logo{font-family:'Outfit';font-weight:800;color:#fff;text-decoration:none;background:linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;} nav ul{display:flex;list-style:none;gap:1.5rem;} nav a{color:var(--text-secondary);text-decoration:none;font-size:0.85rem;font-weight:600;text-transform:uppercase;} .progress-container{position:fixed;top:0;left:0;width:100%;height:3px;z-index:1001;} .progress-bar{height:100%;background:var(--bg-accent);width:0%;box-shadow:0 0 10px var(--bg-accent);} .hero{padding-top:180px;padding-bottom:80px;text-align:center;} .category-tag{font-family:'Outfit';font-size:0.75rem;color:var(--bg-accent);text-transform:uppercase;letter-spacing:3px;background:var(--accent-glow);padding:0.4rem 1.2rem;border-radius:20px;border:1px solid rgba(56, 189, 248, 0.3);} h1{font-family:'Outfit', 'Noto Sans JP';font-size:clamp(2rem, 5vw, 3.8rem);font-weight:800;line-height:1.1;margin:2rem 0;} .meter-container{max-width:500px;margin:0 auto 3rem;padding:1.5rem;background:rgba(255, 255, 255, 0.03);border-radius:20px;border:1px solid var(--border-glass);} .meter-label{display:flex;justify-content:space-between;font-family:'Outfit';font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.8rem;} .meter-track{height:8px;background:rgba(0, 0, 0, 0.3);border-radius:4px;overflow:hidden;} .meter-fill{height:100%;background:linear-gradient(90deg, #3b82f6, var(--bg-accent));width:65%;box-shadow:0 0 15px var(--bg-accent);} main{max-width:var(--container-w);margin:0 auto;padding:0 1.5rem;} article section{background:var(--bg-surface);backdrop-filter:blur(10px);border:1px solid var(--border-glass);border-radius:24px;padding:3rem;margin-bottom:3rem;} h2{font-family:'Outfit';font-size:1.8rem;margin-bottom:2rem;display:flex;align-items:center;} h2::before{content:"";width:4px;height:24px;background:var(--bg-accent);margin-right:1rem;border-radius:4px;} .article-image{width:100%;border-radius:16px;margin-bottom:2rem;border:1px solid var(--border-glass);} .info-box{background:rgba(0, 0, 0, 0.2);border-left:4px solid var(--bg-accent);padding:1.5rem 2rem;border-radius:0 12px 12px 0;margin:2rem 0;} .info-box strong{color:var(--bg-accent);display:block;margin-bottom:0.5rem;font-family:'Outfit';} .conclusion{background:linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);border:2px solid var(--bg-accent) !important;} footer{padding:60px 0;border-top:1px solid var(--border-glass);text-align:center;color:var(--text-dim);}</style>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -293,7 +84,7 @@
         <article>
             <section>
                 <h2>1. 理論の概要</h2>
-                <img src="../assets/posts/dead-internet-theory.png" alt="Dead Internet Theory" class="article-image">
+                <img src="../assets/posts/dead-internet-theory.png" alt="Dead Internet Theory" class="article-image"loading="lazy">
                 <p>「インターネットは2016年から2017年頃に『死んだ』」。これは一部の掲示板やコミュニティで囁かれている不気味な仮説、**デッド・インターネット理論（Dead Internet
                     Theory）**の核心です。この理論によれば、現在のインターネット上の活動、書き込み、画像、議論の大部分はボットや人工知能（AI）によって自動生成されたものであり、生身の人間による原始的なやり取りは、広大なデジタルの闇の中に消えてしまったとされています。
                 </p>
@@ -314,10 +105,13 @@
 
             <section>
                 <h2>3. 科学的・統計的検証</h2>
-                <p>驚くべきことに、統計データはこの理論の一部を肯定しています。サイバーセキュリティ企業のImpervaが行った調査（2023年版）によれば、全インターネットトラフィックの**約49.6%がボットによるもの**であることが判明しています。さらに、その中でも悪意のあるボットや高度な監視ボットが大半を占めています。
-                </p>
-                <p>また、大規模言語モデル（LLM）の登場により、ニュース記事やブログ投稿、プロファイルの自動生成コストはゼロに近づきました。現在のSEO（検索エンジン最適化）の世界では、AIが書いた記事をAIが巡回し、AIが順位を決めるという、文字通りの「閉じたループ」が形成されつつあります。人間が介入する余地は、確実に減少しています。
-                </p>
+                <p>驚くべきことに、統計データはこの理論の一部を肯定しています。サイバーセキュリティ企業のImpervaが行った調査（2023年版）によれば、全インターネットトラフィックの<strong>約49.6%がボットによるもの</strong>であることが判明しています。さらに、その中でも悪意のあるボットや高度な監視ボットが大半を占めており、生身の人間による活動はもはや多数派とは言えなくなりつつあります。</p>
+
+                <h3>「AIスロップ（AI Slop）」とデータの汚染</h3>
+                <p>現在、インターネットは<strong>「AIスロップ」</strong>と呼ばれる、価値の低いAI生成コンテンツで溢れかえっています。これはSEO（検索エンジン最適化）を目的として大量生産され、検索結果の上位を占拠しています。さらに深刻な問題は、AIが次世代のAIを学習させるためのデータセット（Common Crawl等）に、これらのAI生成物が混入し始めていることです。これを<strong>「モデル崩壊（Model Collapse）」</strong>と呼び、ネット上の情報の純度が不可逆的に損なわれる「インバート・インターネット（反転したネット）」の前兆とされています。</p>
+
+                <h3>ボット間の密閉されたループ</h3>
+                <p>SNS上では、ボットが投稿し、別のボットがそれに「いいね」やコメントを返し、さらに別のボットがリポストするという、人間が一切介在しない<strong>「デジタル・ゴーストタウン」</strong>現象が確認されています。アルゴリズムがバズを生み出し、そのバズを別のアルゴリズムが検知して増幅させる。この閉じたループの中に迷い込んだ人間は、あたかも活発な議論が行われているような錯覚に陥らされるのです。</p>
             </section>
 
             <section>
@@ -328,8 +122,19 @@
                 </p>
             </section>
 
+            <section>
+                <h2>6. 目撃情報の地理的分布</h2>
+                <p>デッド・インターネットは物理的な場所を持たず、その「目撃場所」はSNSプラットフォーム上のあらゆる場所に分散しています。特にX（旧Twitter）やReddit、YouTubeのコメント欄において、特定の政治的イベントや新製品の発表時にボットの活動が激増することが確認されています。これは地理的な国境を越え、言語圏（特に英語圏と中国語圏）という「デジタル境界線」に沿って分布しているのが特徴です。</p>
+
+                <h2>7. 関連する都市伝説との比較</h2>
+                <p>この理論は、ロシア発の<strong>「ブルーウェール・チャレンジ」</strong>や、ネット上の<strong>「アルゴリズムの密室（Echo Chambers）」</strong>としばしば比較されます。ブルーウェールが特定の個人をターゲットにした心理操作であったのに対し、デッド・インターネットは「インターネット全体」を対象としたマクロな認識改変を扱っています。これは「現実は偽物である」というシミュレーション仮説の現代ネット版とも言えるでしょう。</p>
+
+                <h2>8. この伝説が示すこと</h2>
+                <p>デッド・インターネット理論の流行は、私たちがデジタル世界に対して抱き始めた「根源的な不信感」を象徴しています。かつては情報の自由を象徴したネットが、今や「機械に監視され、誘導される檻」のように感じられる。この歪んだ感覚は、利便性と引き換えに私たちが失いつつある「人間の尊厳」や「真実へのアクセス権」に対する、現代人特有の悲鳴なのかもしれません。</p>
+            </section>
+
             <section class="conclusion">
-                <h2>5. 合理的結論</h2>
+                <h2>9. 合理的結論</h2>
                 <p>デッド・インターネット理論は、**「インターネットの極端なアルゴリズム化と商業化」がもたらした不気味な現実への直感的警告**であると言えます。ネットが完全に「死んだ（人間がいない）」わけではありませんが、かつての混沌とした自由な空間は失われ、AIとボットが支配する構造物へと変貌を遂げたのは事実です。
                 </p>
                 <p style="margin-top: 2rem; font-style: italic; color: var(--bg-accent);">
@@ -343,14 +148,7 @@
         <p>&copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.</p>
     </footer>
 
-    <script>
-        window.onscroll = function () {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-        };
-    </script>
+    <script>window.onscroll = function () { let winScroll = document.body.scrollTop || document.documentElement.scrollTop; let height = document.documentElement.scrollHeight - document.documentElement.clientHeight; let scrolled = (winScroll / height) * 100; document.getElementById("progressBar").style.width = scrolled + "%"; };</script>
 </body>
 
 </html>

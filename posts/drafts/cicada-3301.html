@@ -27,216 +27,7 @@
         rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5096588905574559"
         crossorigin="anonymous"></script>
-    <style>
-        :root {
-            --bg-base: #020617;
-            --bg-surface: rgba(15, 23, 42, 0.7);
-            --bg-accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.2);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-dim: #64748b;
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --header-blur: 15px;
-            --container-w: 840px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            line-height: 1.8;
-            background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);
-        }
-
-        header {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1000px;
-            height: 60px;
-            background: rgba(2, 6, 23, 0.6);
-            backdrop-filter: blur(var(--header-blur));
-            border: 1px solid var(--border-glass);
-            border-radius: 40px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-family: 'Outfit';
-            font-weight: 800;
-            color: #fff;
-            text-decoration: none;
-            background: linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            z-index: 1001;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--bg-accent);
-            width: 0%;
-            box-shadow: 0 0 10px var(--bg-accent);
-        }
-
-        .hero {
-            padding-top: 180px;
-            padding-bottom: 80px;
-            text-align: center;
-        }
-
-        .category-tag {
-            font-family: 'Outfit';
-            font-size: 0.75rem;
-            color: var(--bg-accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: var(--accent-glow);
-            padding: 0.4rem 1.2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        h1 {
-            font-family: 'Outfit', 'Noto Sans JP';
-            font-size: clamp(2rem, 5vw, 3.8rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 2rem 0;
-        }
-
-        .meter-container {
-            max-width: 500px;
-            margin: 0 auto 3rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            border: 1px solid var(--border-glass);
-        }
-
-        .meter-label {
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Outfit';
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-        }
-
-        .meter-track {
-            height: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .meter-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, var(--bg-accent));
-            width: 95%;
-            box-shadow: 0 0 15px var(--bg-accent);
-        }
-
-        main {
-            max-width: var(--container-w);
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        article section {
-            background: var(--bg-surface);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-family: 'Outfit';
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::before {
-            content: "";
-            width: 4px;
-            height: 24px;
-            background: var(--bg-accent);
-            margin-right: 1rem;
-            border-radius: 4px;
-        }
-
-        .article-image {
-            width: 100%;
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-glass);
-        }
-
-        .info-box {
-            background: rgba(0, 0, 0, 0.2);
-            border-left: 4px solid var(--bg-accent);
-            padding: 1.5rem 2rem;
-            border-radius: 0 12px 12px 0;
-            margin: 2rem 0;
-        }
-
-        .info-box strong {
-            color: var(--bg-accent);
-            display: block;
-            margin-bottom: 0.5rem;
-            font-family: 'Outfit';
-        }
-
-        .conclusion {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
-            border: 2px solid var(--bg-accent) !important;
-        }
-
-        footer {
-            padding: 60px 0;
-            border-top: 1px solid var(--border-glass);
-            text-align: center;
-            color: var(--text-dim);
-        }
-    </style>
+    <style>:root{--bg-base:#020617;--bg-surface:rgba(15, 23, 42, 0.7);--bg-accent:#38bdf8;--accent-glow:rgba(56, 189, 248, 0.2);--text-primary:#f8fafc;--text-secondary:#94a3b8;--text-dim:#64748b;--border-glass:rgba(255, 255, 255, 0.08);--header-blur:15px;--container-w:840px;} *{margin:0;padding:0;box-sizing:border-box;} body{font-family:'Noto Sans JP', sans-serif;background-color:var(--bg-base);color:var(--text-primary);line-height:1.8;background-image:radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 60%);} header{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:90%;max-width:1000px;height:60px;background:rgba(2, 6, 23, 0.6);backdrop-filter:blur(var(--header-blur));border:1px solid var(--border-glass);border-radius:40px;z-index:1000;display:flex;align-items:center;padding:0 2rem;} .logo{font-family:'Outfit';font-weight:800;color:#fff;text-decoration:none;background:linear-gradient(135deg, #fff 0%, var(--bg-accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;} nav ul{display:flex;list-style:none;gap:1.5rem;} nav a{color:var(--text-secondary);text-decoration:none;font-size:0.85rem;font-weight:600;text-transform:uppercase;} .progress-container{position:fixed;top:0;left:0;width:100%;height:3px;z-index:1001;} .progress-bar{height:100%;background:var(--bg-accent);width:0%;box-shadow:0 0 10px var(--bg-accent);} .hero{padding-top:180px;padding-bottom:80px;text-align:center;} .category-tag{font-family:'Outfit';font-size:0.75rem;color:var(--bg-accent);text-transform:uppercase;letter-spacing:3px;background:var(--accent-glow);padding:0.4rem 1.2rem;border-radius:20px;border:1px solid rgba(56, 189, 248, 0.3);} h1{font-family:'Outfit', 'Noto Sans JP';font-size:clamp(2rem, 5vw, 3.8rem);font-weight:800;line-height:1.1;margin:2rem 0;} .meter-container{max-width:500px;margin:0 auto 3rem;padding:1.5rem;background:rgba(255, 255, 255, 0.03);border-radius:20px;border:1px solid var(--border-glass);} .meter-label{display:flex;justify-content:space-between;font-family:'Outfit';font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.8rem;} .meter-track{height:8px;background:rgba(0, 0, 0, 0.3);border-radius:4px;overflow:hidden;} .meter-fill{height:100%;background:linear-gradient(90deg, #3b82f6, var(--bg-accent));width:95%;box-shadow:0 0 15px var(--bg-accent);} main{max-width:var(--container-w);margin:0 auto;padding:0 1.5rem;} article section{background:var(--bg-surface);backdrop-filter:blur(10px);border:1px solid var(--border-glass);border-radius:24px;padding:3rem;margin-bottom:3rem;} h2{font-family:'Outfit';font-size:1.8rem;margin-bottom:2rem;display:flex;align-items:center;} h2::before{content:"";width:4px;height:24px;background:var(--bg-accent);margin-right:1rem;border-radius:4px;} .article-image{width:100%;border-radius:16px;margin-bottom:2rem;border:1px solid var(--border-glass);} .info-box{background:rgba(0, 0, 0, 0.2);border-left:4px solid var(--bg-accent);padding:1.5rem 2rem;border-radius:0 12px 12px 0;margin:2rem 0;} .info-box strong{color:var(--bg-accent);display:block;margin-bottom:0.5rem;font-family:'Outfit';} .conclusion{background:linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);border:2px solid var(--bg-accent) !important;} footer{padding:60px 0;border-top:1px solid var(--border-glass);text-align:center;color:var(--text-dim);}</style>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -293,7 +84,7 @@
         <article>
             <section>
                 <h2>1. 事件の概要</h2>
-                <img src="../assets/posts/cicada-3301.png" alt="Cicada 3301" class="article-image">
+                <img src="../assets/posts/cicada-3301.png" alt="Cicada 3301" class="article-image"loading="lazy">
                 <p>2012年1月4日、匿名画像掲示板4chanに一枚の画像が投稿されました。「私たちは、極めて知的な個人を探している。彼らを見つけ出すために、テストを考案した」。画像の隠されたメッセージを解読した者たちは、やがて世界規模で繰り広げられる、高度な数学、暗号学、そして文学的知識を必要とするパズルの連鎖に巻き込まれていきました。これが「Cicada
                     3301（シケイダ3301）」の始まりです。</p>
                 <p>このパズルは、単なるネット上の暗号解読に留まりませんでした。ある段階では、特定のGPS座標が示され、世界数カ所の物理的な電柱にQRコードが貼られているのが発見されました。これは、背後に組織的なリソースを持つ強力な集団が存在することを証明していました。
@@ -314,23 +105,35 @@
 
             <section>
                 <h2>3. 科学的・歴史的検証</h2>
-                <p>Cicada 3301のパズルは、常にPGP（Pretty Good
-                    Privacy）によるデジタル署名が施されていました。これにより、偽物の模倣（Copycat）と本物を正確に区別することができました。検証の結果、この署名の鍵は現在も破られておらず、背後にある組織が極めて高度なセキュリティ意識を持っていることが証明されています。
-                </p>
-                <p>パズルの解読に成功した数少ない人物の一人、マーカス・ワーナーによれば、パズルの最終段階では匿名ネットワークTorを介したコミュニケーションが行われ、最終的には「啓蒙」を目的とした秘密裏の知的集団への勧誘が行われたとされています。しかし、その組織の具体的な名称や、目的とする活動の詳細は一切不明のままです。
-                </p>
+                <p>Cicada 3301のパズルは、常に<strong>PGP（Pretty Good Privacy）</strong>によるデジタル署名が施されていました。具体的には、公式なメッセージには必ず特定の公開鍵（7A35090F等）に対応する署名が付与されており、これにより偽物の模倣（Copycat）と本物を数学的に正確に区別することができました。検証の結果、この署名の鍵を偽造することは現在の計算機能力では不可能であり、背後にある組織が国家レベル、あるいはそれ以上の高度な情報セキュリティ能力と規律を持っていることが証明されています。</p>
+
+                <h3>リベル・プリムス（Liber Primus）の難解さ</h3>
+                <p>パズルの過程で配布された100ページ以上に及ぶ古書風のPDF<strong>『リベル・プリムス』</strong>は、ルーン文字で書かれた高度な換字式暗号、あるいは多表式暗号の塊です。この書籍の解読には、数論のみならず、哲学や宗教的な文脈の理解が必要とされます。現在も全ページの約1/5程度しか解読されておらず、未だに解明されていないページは「ブルートフォース（総当たり攻撃）」ですら太刀打ちできないレベルの強度を誇っています。</p>
+
+                <h3>「ソルバー」コミュニティの特異性</h3>
+                <p>このパズルは、個人の能力を試すものであると同時に、インターネット上の匿名の人々がどのように協力し、知識を共有するかという「社会実験」の側面も持っていました。解読に成功した数少ない人物の一人、マーカス・ワーナー（Marcus Wanner）によれば、最終段階では匿名ネットワークTorを介したコミュニケーションが行われ、最終的には「啓蒙」を目的とした知的秘密集団への勧誘が行われたとされています。しかし、その組織の具体的な名称や、目的とする活動の詳細は現在もヴェールに包まれています。</p>
             </section>
 
             <section>
                 <h2>4. 残る疑問</h2>
                 <p>最大の謎は、「彼らが誰なのか」です。CIA、MI6、NSAといった諜報機関のスカウト活動説。あるいは、極度の匿名性と暗号化を重視する「サイファーパンク（Cypherpunks）」の急進的な一派。あるいは、全く新しい形態の知的エリート主義に基づいた国際的な非営利組織。あらゆる推測がなされましたが、決定的な証拠はありません。
                 </p>
-                <p>また、2014年を最後に出題が途切れた理由も謎です。内部で何らかの分裂があったのか、あるいは目的を果たして「次の段階」へ移行したのか。パズルの一部として配布された奇怪な古書風のPDF『リベル・プリムス（Liber
-                    Primus）』は、現在もその多くが未解読のまま残されています。</p>
+                <p>また、2014年を最後に出題が途切れた理由も謎です。内部で何らかの分裂があったのか、あるいは目的を果たして「次の段階」へ移行したのか。パズルの一部として配布された奇怪な古書風のPDF『リベル・プリムス（Liber Primus）』は、現在もその多くが未解読のまま残されています。</p>
+            </section>
+
+            <section>
+                <h2>6. 目撃情報の地理的分布</h2>
+                <p>Cicada 3301のパズルは100%デジタルでしたが、現実世界への「接触」が数回行われました。QRコードが貼られた場所は、アメリカ（テキサス、カリフォルニア）、ポーランド（ワルシャワ）、フランス（パリ）、日本（沖縄）など世界中に点在していました。この広域な展開は、組織が物理的なエージェントを世界各地に配置できる規模と機動力を持っていたことを示唆しています。</p>
+
+                <h2>7. 関連する都市伝説との比較</h2>
+                <p>Cicada 3301は、Reddit上の謎のサブレディット<strong>「A858」</strong>や、アリゾナ大学の新聞に長年掲載され続けている<strong>「May Day Mystery」</strong>としばしば比較されます。これらに共通するのは「高度な知性と継続性」ですが、Cicada 3301は「双方向性」と「リクルーティング目的」を明確に持っていたという点で、他の単なる暗号パズルを超えた「組織的な意思」を感じさせます。</p>
+
+                <h2>8. この伝説が示すこと</h2>
+                <p>この現象は、デジタル時代における「新たなエリート主義」の形を示しています。血筋や富ではなく、純粋な「知力」と「暗号解読能力」のみによって選別される秘密結社という概念は、インターネット原住民にとっての究極のロマンであり、同時に匿名ネットワークが持つ「国家の監視を超えた協力体制」の可能性と危うさを浮き彫りにしました。</p>
             </section>
 
             <section class="conclusion">
-                <h2>5. 合理的結論</h2>
+                <h2>9. 合理的結論</h2>
                 <p>Cicada
                     3301は、**高度な情報技術と暗号学を武器とする知的秘密組織による、世界規模のリクルーティング・プロジェクト**であったと結論づけるのが最も論理的です。それは国家機関である可能性もありますが、それ以上に、国境を超えた「知識の独立」を求めるサイバー主義者の実験場であった可能性が高いでしょう。
                 </p>
@@ -345,14 +148,7 @@
         <p>&copy; 2026 TRUTH SEEKER - LOGICAL OCCULT INVESTIGATION PROJECT.</p>
     </footer>
 
-    <script>
-        window.onscroll = function () {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-        };
-    </script>
+    <script>window.onscroll = function () { let winScroll = document.body.scrollTop || document.documentElement.scrollTop; let height = document.documentElement.scrollHeight - document.documentElement.clientHeight; let scrolled = (winScroll / height) * 100; document.getElementById("progressBar").style.width = scrolled + "%"; };</script>
 </body>
 
 </html>
